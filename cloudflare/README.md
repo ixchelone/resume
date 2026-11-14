@@ -2,16 +2,16 @@
 
 Serves **GitHub Release** PDFs inline under the Pages domain.
 - **Source:** [cloudflare/_worker.js](./_worker.js)
-- **Upstream:** `https://github.com/ILXNAH/resume/releases/download/credentials/<file>.pdf`
+- **Upstream:** `https://github.com/ixchelone/resume/releases/download/credentials/<file>.pdf`
 - **Public URLs (handled by Worker):**
-  - `https://ilxnah.pages.dev/<file>.pdf`  ← preferred, short
-  - `https://ilxnah.pages.dev/docs/credentials/<type>/<file>.pdf`  *(fallback)*
+  - `https://ixchelone.pages.dev/<file>.pdf`  ← preferred, short
+  - `https://ixchelone.pages.dev/docs/credentials/<type>/<file>.pdf`  *(fallback)*
 
 `<type>` can be `certifications`, `certificates`, or `courses` (for pretty URLs only).
 
 ## Deploy (Pages, direct upload)
 1) Create a ZIP containing **only** [_worker.js](./_worker.js) at the root.  
-2) Cloudflare Dashboard → **Pages** → project `ilxnah` → **Create deployment** → upload ZIP.
+2) Cloudflare Dashboard → **Pages** → project `ixchelone` → **Create deployment** → upload ZIP.
 
 **Response headers:**
 - `Content-Disposition: inline`
@@ -26,7 +26,7 @@ Serves **GitHub Release** PDFs inline under the Pages domain.
 
 3) In Hugo data JSON, link to the Pages URL, e.g.:
    ```json
-   { "url": "https://ilxnah.pages.dev/prince2-agile-expert.pdf" }
+   { "url": "https://ixchelone.pages.dev/prince2-agile-expert.pdf" }
    ```
    - *(Data schema lives in the main project README → see [Data & Content Structure](../README.md#data--content-structure).)*
    

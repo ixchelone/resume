@@ -18,7 +18,7 @@ export default {
       return new Response('ok');
     }
 
-    const gh = `https://github.com/ILXNAH/resume/releases/download/credentials/${file}`;
+    const gh = `https://github.com/ixchelone/resume/releases/download/credentials/${file}`;
     const r = await fetch(gh, { headers: { 'User-Agent': 'cf-proxy' } });
     if (!r.ok) return new Response(`Upstream ${r.status}`, { status: r.status });
 

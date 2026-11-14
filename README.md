@@ -1,11 +1,11 @@
 # Personal Resume Website (Hugo)
-[![Live](https://img.shields.io/badge/-Live%20%E2%86%97-0d9488?style=flat-square)](https://ilxnah.github.io/resume/)
-[![Build](https://img.shields.io/github/actions/workflow/status/ILXNAH/resume/hugo.yaml?branch=main&label=Build&style=flat-square)](https://github.com/ILXNAH/resume/actions/workflows/hugo.yaml)
+[![Live](https://img.shields.io/badge/-Live%20%E2%86%97-0d9488?style=flat-square)](https://ixchelone.github.io/resume/)
+[![Build](https://img.shields.io/github/actions/workflow/status/ixchelone/resume/hugo.yaml?branch=main&label=Build&style=flat-square)](https://github.com/ixchelone/resume/actions/workflows/hugo.yaml)
 [![Hugo](https://img.shields.io/badge/Hugo-e03582?style=flat-square&logo=hugo&logoColor=white)](https://gohugo.io/)
 [![Theme](https://img.shields.io/badge/-Resume%20Theme-6f42c1?style=flat-square)](https://github.com/eddiewebb/hugo-resume)
 [![GitHub Pages](https://img.shields.io/badge/-GitHub%20Pages-8b0000?style=flat-square&logo=github&logoColor=white)](https://pages.github.com/)
 [![Cloudflare Worker](https://img.shields.io/badge/-Cloudflare%20Worker-1f2937?style=flat-square&logo=cloudflare&logoColor=F38020)](https://developers.cloudflare.com/workers/)
-[![Credentials](https://img.shields.io/badge/-%F0%9F%93%84%20Credentials-86198f?style=flat-square)](https://github.com/ILXNAH/resume/releases/tag/credentials)
+[![Credentials](https://img.shields.io/badge/-%F0%9F%93%84%20Credentials-86198f?style=flat-square)](https://github.com/ixchelone/resume/releases/tag/credentials)
 [![MIT](https://img.shields.io/static/v1?label=&message=MIT&color=0066cc&style=flat-square&logo=opensourceinitiative&logoColor=white)](LICENSE)
 [![CC BY-NC-ND 4.0](https://img.shields.io/static/v1?label=&message=CC%20BY-NC-ND%204.0&color=555555&style=flat-square&logo=creativecommons&logoColor=white)](LICENSE-CC)
 
@@ -71,7 +71,7 @@ Static résumé site with selected work, skills, and certifications; PDFs render
 
   ```toml
   [params]
-    brandName = "Ilona Loučková"
+    brandName = "Ilona Ixchel Loučka"
     profileImage = "images/profileImage.svg"
     profileImageWidth = 32
     profileImageHeight = 32
@@ -141,7 +141,7 @@ Deployed via **GitHub Pages** (see [`.github/workflows/hugo.yaml`](.github/workf
 ## PDF Hosting
 PDF files (e.g., certificates) are stored as **GitHub Release assets** (tag `credentials`) and served inline via a **Cloudflare Pages Worker** under the Pages domain.
 
-They are exposed under short URLs like `https://ilxnah.pages.dev/<file>.pdf`.
+They are exposed under short URLs like `https://ixchelone.pages.dev/<file>.pdf`.
 
 **Why a worker?** Ensures PDFs render inline and are browser-cached (~1 hour). See [cloudflare/README.md](./cloudflare/README.md) for exact headers, caching, deploy steps and instructions on adding a new PDF.
 
@@ -155,12 +155,12 @@ Each item links to a PDF proxied by Cloudflare (Pages domain).
   "title": "CyberEdu NIS2 Academy",
   "subtitle": "MoyaKybeon Cybersecurity Manager",
   "issuer": "Netia s.r.o.",
-  "url": "https://ilxnah.pages.dev/cyberedu-nis2-academy.pdf",
+  "url": "https://ixchelone.pages.dev/cyberedu-nis2-academy.pdf",
   "date": "2025-03-07"
 }
 ```
 - **Filenames:** use **kebab-case**, lowercase, with the `.pdf` extension (e.g., `prince2-agile-practitioner.pdf`).
-- **URL mapping:** short URL = `https://ilxnah.pages.dev/<filename>.pdf` — `<filename>` **must** match the Release asset name exactly.
+- **URL mapping:** short URL = `https://ixchelone.pages.dev/<filename>.pdf` — `<filename>` **must** match the Release asset name exactly.
 - **JSON `.url`:** always point to the Pages URL (not the GitHub Releases URL).
 - **Dates:** use ISO 8601 (`YYYY-MM-DD`) in `date`.
 - **Where it renders:** credentials are read from `data/*.json` and displayed by the site’s shortcodes/partials.
