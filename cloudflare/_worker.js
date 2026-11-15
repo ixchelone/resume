@@ -1,33 +1,72 @@
+
 export default {
-  async fetch(req) {
-    const u = new URL(req.url);
+  async fetch(request, env) {
+    const url = new URL(request.url);
     let file = null;
 
-    // New short form: /file.pdf
-    if (/^\/[^/]+\.pdf$/i.test(u.pathname)) {
-      file = u.pathname.slice(1);
+    // Short form: /filename.pdf
+    if (/^\/[^/]+\.pdf$/i.test(url.pathname)) {
+      file = url.pathname.slice(1);
     }
-    // Back-compat: /docs/credentials/<type>/<file>.pdf
-    else if (u.pathname.startsWith('/docs/credentials/')) {
-      const parts = u.pathname.split('/').filter(Boolean); // ['docs','credentials',type,'file.pdf']
+
+    // Backward-compatible form:
+    // /docs/credentials/<type>/<filename>.pdf
+    else if (url.pathname.startsWith('/docs/credentials/')) {
+      const parts = url.pathname.split('/').filter(Boolean);
+
       const type = parts[2];
-      if (!['certifications','certificates','courses'].includes(type))
+      const filename = parts[3];
+
+      if (
+        parts.length !== 4 ||
+        !['certifications', 'certificates', 'courses'].includes(type) ||
+        !filename
+      ) {
         return new Response('Not found', { status: 404 });
-      file = parts[3];
-    } else {
-      return new Response('ok');
+      }
+
+      file = filename;
     }
 
-    const gh = `https://github.com/ixchelone/resume/releases/download/credentials/${file}`;
-    const r = await fetch(gh, { headers: { 'User-Agent': 'cf-proxy' } });
-    if (!r.ok) return new Response(`Upstream ${r.status}`, { status: r.status });
+    // Proxy PDF from GitHub Releases
+    if (file !== null) {
+      if (!/^[a-z0-9][a-z0-9-]*\.pdf$/i.test(file)) {
+        return new Response('Not found', { status: 404 });
+      }
 
-    const h = new Headers(r.headers);
-    h.set('Content-Disposition', `inline; filename="${file}"`);
-    h.set('Content-Type', 'application/pdf');
-    h.delete('X-Content-Type-Options');
-    h.set('Cache-Control', 'public, max-age=3600');
+      if (!['GET', 'HEAD'].includes(request.method)) {
+        return new Response('Method not allowed', {
+          status: 405,
+          headers: { Allow: 'GET, HEAD' },
+        });
+      }
 
-    return new Response(r.body, { status: r.status, headers: h });
-  }
-}
+      const gh = `https://github.com/ixchelone/resume/releases/download/credentials/${encodeURIComponent(file)}`;
+
+      const upstream = await fetch(gh, {
+        method: request.method,
+        headers: { 'User-Agent': 'cf-proxy' },
+      });
+
+      if (!upstream.ok) {
+        return new Response(`Upstream ${upstream.status}`, {
+          status: upstream.status,
+        });
+      }
+
+      const headers = new Headers(upstream.headers);
+
+      headers.set('Content-Disposition', `inline; filename="${file}"`);
+      headers.set('Content-Type', 'application/pdf');
+      headers.set('Cache-Control', 'public, max-age=3600');
+
+      return new Response(upstream.body, {
+        status: upstream.status,
+        headers,
+      });
+    }
+
+    // All other requests go to Hugo static assets
+    return env.ASSETS.fetch(request);
+  },
+};
