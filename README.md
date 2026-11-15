@@ -1,10 +1,10 @@
 # Personal Resume Website (Hugo)
-[![Live](https://img.shields.io/badge/-Live%20%E2%86%97-0d9488?style=flat-square)](https://ixchelone.github.io/resume/)
+[![Live](https://img.shields.io/badge/-Live%20%E2%86%97-0d9488?style=flat-square)](https://ixchelone.dev/)
 [![Build](https://img.shields.io/github/actions/workflow/status/ixchelone/resume/hugo.yaml?branch=main&label=Build&style=flat-square)](https://github.com/ixchelone/resume/actions/workflows/hugo.yaml)
 [![Hugo](https://img.shields.io/badge/Hugo-e03582?style=flat-square&logo=hugo&logoColor=white)](https://gohugo.io/)
 [![Theme](https://img.shields.io/badge/-Resume%20Theme-6f42c1?style=flat-square)](https://github.com/eddiewebb/hugo-resume)
-[![GitHub Pages](https://img.shields.io/badge/-GitHub%20Pages-8b0000?style=flat-square&logo=github&logoColor=white)](https://pages.github.com/)
-[![Cloudflare Worker](https://img.shields.io/badge/-Cloudflare%20Worker-1f2937?style=flat-square&logo=cloudflare&logoColor=F38020)](https://developers.cloudflare.com/workers/)
+[![Cloudflare Pages](https://img.shields.io/badge/-Cloudflare%20Pages-F38020?style=flat-square&logo=cloudflare&logoColor=white)](https://pages.cloudflare.com/)
+[![Cloudflare Worker](https://img.shields.io/badge/-Cloudflare%20Worker-1f2937?style=flat-square&logo=cloudflare&logoColor=F38020)](https://developers.cloudflare.com/pages/functions/advanced-mode/)
 [![Credentials](https://img.shields.io/badge/-%F0%9F%93%84%20Credentials-86198f?style=flat-square)](https://github.com/ixchelone/resume/releases/tag/credentials)
 [![MIT](https://img.shields.io/static/v1?label=&message=MIT&color=0066cc&style=flat-square&logo=opensourceinitiative&logoColor=white)](LICENSE)
 [![CC BY-NC-ND 4.0](https://img.shields.io/static/v1?label=&message=CC%20BY-NC-ND%204.0&color=555555&style=flat-square&logo=creativecommons&logoColor=white)](LICENSE-CC)
@@ -16,7 +16,7 @@ Static résumé site with selected work, skills, and certifications; PDFs render
 - [Technologies Used](#technologies-used)
 - [Theming & Assets](#theming--assets)
   - [Theme (submodule) & safe customization](#theme-submodule--safe-customization)
-  - [Navbar brand icon (`profileImage`)](#navbar-brand-icon-profileimage)
+  - [Navbar brand icon (profileImage)](#navbar-brand-icon-profileimage)
   - [CSS (self-hosted)](#css-self-hosted)
   - [Fonts (self-hosted; third-party)](#fonts-self-hosted-third-party)
   - [JavaScript (self-hosted)](#javascript-self-hosted)
@@ -33,7 +33,7 @@ Static résumé site with selected work, skills, and certifications; PDFs render
 
 ## Features
 - Clean, minimal site built with **Hugo**
-- Deployed on **GitHub Pages**
+- Deployed on **Cloudflare Pages**
 - PDFs via **GitHub Releases**, proxied inline by a **Cloudflare Pages Worker**
 - **Hugo Resume** theme with custom tweaks
 - Config-driven **navbar brand icon** (SVG by default) with intrinsic width/height, cumulative layout shift (CLS)–safe, and accessible labels from `params.brandName` (fallback `.Site.Title`) — see [Navbar brand icon](#navbar-brand-icon-profileimage)
@@ -44,14 +44,16 @@ Static résumé site with selected work, skills, and certifications; PDFs render
   - **JS:** vendor + site scripts from `static/js/` (incl. `static/js/vendor/`)
 
 - **Hugo Pipes optimization**
-  - Single bundled stylesheet (minified) with **fingerprinting** for cache-busting  
-    *(emitted as `/public/css/app.min.<hash>.css`)*
+  - Single bundled stylesheet (minified) with **fingerprinting** for cache-busting
+    *(generated as `public/css/app.min.<hash>.css`, served at `/css/app.min.<hash>.css`)*
 
 ## Technologies Used
 - [Hugo](https://gohugo.io/) — static site generator (Extended; version pinned in [CI](.github/workflows/hugo.yaml))
 - [Hugo Resume by Eddie Webb](https://github.com/eddiewebb/hugo-resume) — theme (as a git submodule)
-- [GitHub Pages](https://pages.github.com/) — hosting
-- [Cloudflare Pages Worker](https://developers.cloudflare.com/pages/functions/) — PDF proxy
+- [Cloudflare Pages](https://www.cloudflare.com/products/pages/) — hosting and deployment
+- [Cloudflare Worker — Pages Function, Advanced Mode](https://developers.cloudflare.com/pages/functions/advanced-mode/) - PDF proxy and static asset routing
+- [GitHub Actions](https://github.com/features/actions) — automated Hugo build and deployment
+- [GitHub Releases](https://github.com/ixchelone/resume/releases/tag/credentials) — PDF asset storage
 - Fonts: [Open Sans](https://fonts.google.com/specimen/Open+Sans), [Saira](https://fonts.google.com/specimen/Saira)
 
 ## Theming & Assets
@@ -108,62 +110,114 @@ Run:
   hugo server -D --disableFastRender
   ```
 
-Open: [http://localhost:1313/resume/](http://localhost:1313/resume/) (with `baseURL = "/resume/"` set in [`config.toml`](./config.toml))
+Open: [http://localhost:1313/](http://localhost:1313/)
+
 
 ## Build & Deploy
-Deployed via **GitHub Pages** (see [`.github/workflows/hugo.yaml`](.github/workflows/hugo.yaml))
+
+Deployed via **Cloudflare Pages** (project `ixchelone`) using [GitHub Actions](.github/workflows/hugo.yaml) and the Cloudflare Wrangler CLI.
 
 - **Build (local):**
 
-   ```bash
-   hugo --gc --minify --cleanDestinationDir
-   ```
+  ```bash
+  hugo --gc --minify --cleanDestinationDir
+  cp cloudflare/_worker.js public/_worker.js
+  ```
 
-- **CI flow:**
-   - **Trigger:** push to `main` (only when site files change) or manual dispatch
-   - **Build:** install Hugo Extended, checkout with submodules, baseURL injected by Pages
-   - **Deploy:** upload build artifact, then deploy via GitHub Pages
+- **CI/CD flow:**
 
-- **Change-gating:** build/deploy runs only when site files change (`assets/`, `content/`, `data/`, `layouts/`, `static/`, `themes/`, [`config.toml`](./config.toml), or `.github/workflows/**`), or when manually dispatched.
+  - **Trigger:** Push to `main` when relevant site or deployment files change, or manual workflow dispatch.
+  - **Build:** Install Hugo Extended (version pinned to `0.141.0`), checkout the repository including recursive Git submodules, and build the website into `public/`.
+  - **Worker integration:** Copy the tracked `cloudflare/_worker.js` into the root of the generated `public/` directory.
+  - **Deploy:** Upload the complete `public/` directory to the Cloudflare Pages project `ixchelone` using `cloudflare/wrangler-action@v4`.
 
-- **Hugo install & version pinning:** CI uses `peaceiris/actions-hugo@v2` (Extended), with the version pinned by the `HUGO_VERSION` env.
+- **Change detection:** The workflow runs only when relevant files change (`assets/`, `archetypes/`, `content/`, `data/`, `i18n/`, `layouts/`, `static/`, `themes/`, `config.toml`, `cloudflare/_worker.js`, or `.github/workflows/`), or when manually dispatched.
 
-- **Cache:** restores/saves `HUGO_CACHEDIR` between runs to speed builds.  
-  Cache key: `${{ runner.os }}-hugo-${{ env.HUGO_VERSION }}-${{ hashFiles('config.toml') }}` (invalidates when OS/Hugo version or [`config.toml`](./config.toml) changes).
+- **Hugo installation & version pinning:** CI uses `peaceiris/actions-hugo@v2` with Hugo Extended version pinned through the `HUGO_VERSION` environment variable.
 
-- **Artifact & retention:** the built site (`/public`) is uploaded via `actions/upload-pages-artifact@v3` with **90-day** retention, then deployed by `actions/deploy-pages@v4`.
+- **Cache:** Restores and saves the Hugo cache (`HUGO_CACHEDIR`) between builds to speed up subsequent builds.
 
-- **Concurrency:** `concurrency: { group: pages, cancel-in-progress: true }` prevents overlapping deployments.
+  Cache key: `${{ runner.os }}-hugo-${{ env.HUGO_VERSION }}-${{ hashFiles('config.toml') }}`.
 
-- **Traceability:** the site footer shows “Page content generated from commit …” and links to the exact Git commit used for that page.
-   - Ensure `enableGitInfo = true` in [`config.toml`](./config.toml), and set `fetch-depth: 0` on `actions/checkout` in CI so commit metadata is available.
+- **Deployment authentication:** Wrangler authenticates using the GitHub Actions secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`. The GitHub token allows the Wrangler Action to create a GitHub Deployment record. It is provided through `secrets.GITHUB_TOKEN` with the `deployments: write` permission.
+
+- **Generated output:** Hugo generates the website in `public/`. The Worker is copied into this directory during CI. The generated `public/` directory remains excluded from Git version control.
+
+- **Concurrency:** `concurrency: { group: cloudflare-pages, cancel-in-progress: true }` prevents overlapping production deployments.
+
+- **Traceability:** The site footer shows the commit used to generate the page and links to the corresponding GitHub commit.
+
+  Ensure `enableGitInfo = true` in [`config.toml`](./config.toml) and `fetch-depth: 0` in `actions/checkout` so Git metadata is available.
 
 ## PDF Hosting
-PDF files (e.g., certificates) are stored as **GitHub Release assets** (tag `credentials`) and served inline via a **Cloudflare Pages Worker** under the Pages domain.
+PDF documents (certificates, certifications, courses, and the résumé) are stored as **GitHub Release assets** in the `credentials` release of [`ixchelone/resume`](https://github.com/ixchelone/resume/releases/tag/credentials).
+They are served inline through a **Cloudflare Pages Worker**, using the same domain as the Hugo portfolio.
 
-They are exposed under short URLs like `https://ixchelone.pages.dev/<file>.pdf`.
+- **Source repository:** [`ixchelone/resume`](https://github.com/ixchelone/resume)
+- **Release:** [`credentials`](https://github.com/ixchelone/resume/releases/tag/credentials)
+- **Worker source:** [`cloudflare/_worker.js`](./cloudflare/_worker.js)
+- **Hosting:** Cloudflare Pages project `ixchelone`, with `ixchelone.dev` as the canonical production domain.
 
-**Why a worker?** Ensures PDFs render inline and are browser-cached (~1 hour). See [cloudflare/README.md](./cloudflare/README.md) for exact headers, caching, deploy steps and instructions on adding a new PDF.
+### Public URLs
+**Preferred short URLs:**
+`https://ixchelone.dev/<filename>.pdf`
+
+**Backward-compatible URLs:**
+`https://ixchelone.dev/docs/credentials/<type>/<filename>.pdf`
+
+The `<type>` segment can be `certifications`, `certificates`, or `courses`.
+
+For testing before the custom domain is fully activated, the temporary Pages domain is also available:
+`https://ixchelone.pages.dev/<filename>.pdf`
+
+### Request handling
+The Worker handles PDF requests by fetching the matching asset from the GitHub Release.
+All other requests are forwarded to Cloudflare Pages static assets through `env.ASSETS.fetch(request)`, allowing the same Pages project to serve the Hugo website.
+The Worker sets the following response headers for PDF files:
+- `Content-Disposition: inline` — display the PDF in the browser.
+- `Content-Type: application/pdf`.
+- `Cache-Control: public, max-age=3600` — allow browser caching for approximately one hour.
+
+### Why a Worker?
+The Worker provides stable, short PDF URLs under the portfolio's own domain, independently of GitHub's Release download URLs.
+GitHub Releases remain the central storage location for all PDF assets.
+
+Uploading or replacing a GitHub Release asset without changing its filename or the corresponding JSON entry does not require a Hugo rebuild.
+
+Adding a new credential to the portfolio requires updating the appropriate `data/*.json` file and deploying a new Hugo build.
+
+See [`cloudflare/README.md`](./cloudflare/README.md) for deployment details, routing, response headers, caching, and instructions on adding new PDF assets.
 
 ## Data & Content Structure
-Credential data lives in `data/` as JSON (e.g., `data/certifications.json`, `data/certificates.json`, `data/courses.json`).  
-Each item links to a PDF proxied by Cloudflare (Pages domain). 
+Credential and course data lives in `data/` as JSON files:
+- `data/certifications.json` — professional certifications.
+- `data/certificates.json` — certificates and completed programs.
+- `data/courses.json` — courses and other training.
+Each entry contains structured information displayed by the corresponding Hugo shortcodes and partials.
 
-**Minimal data model:**
+### Minimal data model
+Example entry in `data/certificates.json`:
 ```json
 {
   "title": "CyberEdu NIS2 Academy",
   "subtitle": "MoyaKybeon Cybersecurity Manager",
   "issuer": "Netia s.r.o.",
-  "url": "https://ixchelone.pages.dev/cyberedu-nis2-academy.pdf",
+  "url": "https://ixchelone.dev/cyberedu-nis2-academy.pdf",
   "date": "2025-03-07"
 }
 ```
-- **Filenames:** use **kebab-case**, lowercase, with the `.pdf` extension (e.g., `prince2-agile-practitioner.pdf`).
-- **URL mapping:** short URL = `https://ixchelone.pages.dev/<filename>.pdf` — `<filename>` **must** match the Release asset name exactly.
-- **JSON `.url`:** always point to the Pages URL (not the GitHub Releases URL).
-- **Dates:** use ISO 8601 (`YYYY-MM-DD`) in `date`.
-- **Where it renders:** credentials are read from `data/*.json` and displayed by the site’s shortcodes/partials.
+
+### Data conventions
+- **Filenames:** Use unique, lowercase kebab-case filenames with the `.pdf` extension (e.g., `prince2-agile-practitioner.pdf`).
+- **GitHub Release assets:** Upload PDF files as individual assets to the `credentials` release in [`ixchelone/resume`](https://github.com/ixchelone/resume/releases/tag/credentials).
+- **Asset filenames:** The PDF filename referenced in the JSON `url` must exactly match the corresponding GitHub Release asset name.
+- **URL mapping:** The canonical short URL is `https://ixchelone.dev/<filename>.pdf`. The filename must match the Release asset exactly.
+- **Backward-compatible URLs:** The Worker also supports `/docs/credentials/<type>/<filename>.pdf`, where `<type>` is `certificates`, `certifications`, or `courses`.
+- **Asset organization:** GitHub Release assets are stored as individual files without subdirectories. The `<type>` segment is used for URL organization only.
+- **JSON URLs:** Always reference the canonical portfolio domain (`https://ixchelone.dev/`), not the direct GitHub Release download URL. Use the temporary Pages domain only for pre-production testing.
+- **Dates:** Use ISO 8601 format (`YYYY-MM-DD`) for dates.
+- **Optional metadata:** Additional fields such as `id`, `expires`, `notes`, and `subtitle` can be used where applicable.
+- **Rendering:** Credential entries are read from `data/*.json` and displayed through the corresponding Hugo shortcodes and partials.
 
 ## Commit Conventions
 - Follow [Conventional Commits](https://www.conventionalcommits.org/) style.
@@ -189,8 +243,9 @@ Please refer to each license file for the full terms.
 - **Excludes:** submodules (e.g., `themes/resume/`), generated output such as `public/` and `resources/_gen/`.
 
 ### Content
-- **Written content, data, and personal files** are licensed under [CC BY-NC-ND 4.0](./LICENSE-CC).  
-- **Includes (non-exhaustive):** `content/`, `data/` (JSON entries), `static/images/`, `static/icons/`, and certificates/credentials in GitHub Releases.  
+- **Original content:** Original written content and materials created for this project are licensed under [CC BY-NC-ND 4.0](./LICENSE-CC).
+- **Includes (non-exhaustive):** Original texts in `content/`, original portfolio descriptions and data entries in `data/`, and original visual assets in `static/images/` and `static/icons/`.
+- **Third-party documents:** Certificates, credentials, and other documents issued by third parties and hosted in GitHub Releases are provided for verification purposes only. They are **not covered by this project's CC BY-NC-ND 4.0 license** and remain subject to the applicable rights and terms of their respective issuers and other rights holders.
 
 ### Third-Party Components
 This project uses third-party components that are subject to their own licenses. For details on those components (e.g., fonts, Hugo Resume theme) and a full breakdown of licensing scopes, see the [NOTICE](./NOTICE) file.
