@@ -203,3 +203,11 @@ footer.site-footer {
   .ilx-lightbox,
   .ilx-lightbox__dialog { transition: none !important; }
 }
+
+/* Mobile: use natural left-aligned paragraph text */
+@media (max-width: 768px) {
+  .justify-square {
+    text-align: left;
+    text-align-last: auto;
+  }
+}
