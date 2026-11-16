@@ -1,14 +1,15 @@
 
 @media (max-width: 768px) {
-  /* makes googlebot happy with tap target spacing */
-  a {
-  min-height: 48px !important;
-  min-width: 48px !important;
-  min-inline-size: 48px !important;
-  margin-right: 4px;
-  margin-left: 4px;
-  line-height: 48px;
-}
+  #sideNav .navbar-toggler,
+  #sideNav .nav-link {
+    min-height: 48px;
+    min-width: 48px;
+  }
+
+  .justify-square {
+    text-align: left;
+    text-align-last: auto;
+  }
 }
 
 img {
@@ -43,10 +44,6 @@ div.skills-heading{
     margin-bottom:0 !important;
 }
 
-
-
-/* From https://codepen.io/wbeeftink/pen/dIaDH */
-
 .tags {
     font: 12px/1.5 'PT Sans', serif;
   list-style: none;
@@ -71,6 +68,7 @@ div.skills-heading{
   margin: 0 10px 10px 0;
   text-decoration: none;
   -webkit-transition: color 0.2s;
+  transition: color 0.2s;
 }
 
 .tag::before {
@@ -122,10 +120,6 @@ div.skills-heading{
 .my-auto {
 	width: 100%
 }
-
-    .advteaser-container{
-
-    }
 
     .advteaser {
         width: 250px;
