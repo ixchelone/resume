@@ -160,8 +160,10 @@ The production deployment has been successfully verified, including the Hugo sit
 - **HTTPS:** Enabled through Cloudflare SSL/TLS.
 - **DNS delegation:** The domain uses Cloudflare nameservers.
 
+
 ## PDF Hosting
 PDF documents (certificates, certifications, courses, and the résumé) are stored as **GitHub Release assets** in the `credentials` release of [`ixchelone/resume`](https://github.com/ixchelone/resume/releases/tag/credentials).
+
 They are served inline through a **Cloudflare Pages Worker**, using the same domain as the Hugo portfolio.
 
 - **Source repository:** [`ixchelone/resume`](https://github.com/ixchelone/resume)
@@ -179,7 +181,6 @@ They are served inline through a **Cloudflare Pages Worker**, using the same dom
 The `<type>` segment can be `certifications`, `certificates`, or `courses`.
 
 The default Cloudflare Pages domain remains available for deployment diagnostics and direct testing:
-
 `https://ixchelone.pages.dev/<filename>.pdf`
 
 The canonical production domain is `https://ixchelone.dev/`.
@@ -187,22 +188,27 @@ The canonical production domain is `https://ixchelone.dev/`.
 ### Request handling
 The Worker handles PDF requests by fetching the matching asset from the GitHub Release.
 All other requests are forwarded to Cloudflare Pages static assets through `env.ASSETS.fetch(request)`, allowing the same Pages project to serve the Hugo website.
+
 The Worker sets the following response headers for PDF files:
 - `Content-Disposition: inline` — display the PDF in the browser.
 - `Content-Type: application/pdf`.
 - `Cache-Control: public, max-age=3600` — allow browser caching for approximately one hour.
 
 The PDF endpoint supports HTTP byte-range requests, allowing clients to retrieve partial content instead of downloading the entire document.
-Partial content delivery has been verified in production using HTTP `Range` requests and `206 Partial Content` responses.
+
+Partial content delivery has been verified in production using HTTP `Range` requests and `206 Partial Content` responses, with the expected `Content-Range` and `Content-Length` headers.
+
+### Cache behavior
+- **Worker response:** PDF responses include `Cache-Control: public, max-age=3600`, allowing browser caching for one hour.
+- **Cloudflare Browser Cache TTL:** The zone-level setting is configured as `Respect Existing Headers`, ensuring that Cloudflare respects the cache policy defined by the Worker instead of overriding it with a fixed browser TTL.
+- **Production verification:** Confirmed that production PDF responses return `Cache-Control: public, max-age=3600`.
+- **Implementation:** No additional Range-specific Worker code or deployment changes were required.
 
 ### Why a Worker?
 The Worker provides stable, short PDF URLs under the portfolio's own domain, independently of GitHub's Release download URLs.
 GitHub Releases remain the central storage location for all PDF assets.
-
 Uploading or replacing a GitHub Release asset without changing its filename or the corresponding JSON entry does not require a Hugo rebuild.
-
 Adding a new credential to the portfolio requires updating the appropriate `data/*.json` file and deploying a new Hugo build.
-
 See [`cloudflare/README.md`](./cloudflare/README.md) for deployment details, routing, response headers, caching, and instructions on adding new PDF assets.
 
 ## Data & Content Structure
@@ -231,7 +237,7 @@ Example entry in `data/certificates.json`:
 - **URL mapping:** The canonical short URL is `https://ixchelone.dev/<filename>.pdf`. The filename must match the Release asset exactly.
 - **Backward-compatible URLs:** The Worker also supports `/docs/credentials/<type>/<filename>.pdf`, where `<type>` is `certificates`, `certifications`, or `courses`.
 - **Asset organization:** GitHub Release assets are stored as individual files without subdirectories. The `<type>` segment is used for URL organization only.
-- **JSON URLs:** Always reference the canonical portfolio domain (`https://ixchelone.dev/`), not the direct GitHub Release download URL. Use the temporary Pages domain only for pre-production testing.
+- **JSON URLs:** Always reference the canonical portfolio domain (`https://ixchelone.dev/`), not the direct GitHub Release download URL. Use the temporary Pages domain (`https://ixchelone.pages.dev/`) for deployment diagnostics and direct testing only; production data must always reference the canonical domain.
 - **Dates:** Use ISO 8601 format (`YYYY-MM-DD`) for dates.
 - **Optional metadata:** Additional fields such as `id`, `expires`, `notes`, and `subtitle` can be used where applicable.
 - **Rendering:** Credential entries are read from `data/*.json` and displayed through the corresponding Hugo shortcodes and partials.
