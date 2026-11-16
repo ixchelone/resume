@@ -153,12 +153,15 @@ The production deployment has been successfully verified, including the Hugo sit
   Ensure `enableGitInfo = true` in [`config.toml`](./config.toml) and `fetch-depth: 0` in `actions/checkout` so Git metadata is available.
 
 ### Production Domain & DNS
-- **Canonical domain:** `https://ixchelone.dev/`
+- **Canonical domain:** [https://ixchelone.dev/](https://ixchelone.dev/)
+- **Alternative hostname:** [https://www.ixchelone.dev/](https://www.ixchelone.dev/)
+- **Canonical redirect:** All requests to the `www` hostname are permanently redirected to the apex domain using a Cloudflare Single Redirect (HTTP 301).
+- **Redirect behavior:** Original URL paths and query strings are preserved. Both HTTP and HTTPS requests are redirected to HTTPS.
 - **Domain registrar:** Porkbun.
 - **DNS provider:** Cloudflare.
-- **Hosting:** Cloudflare Pages project `ixchelone`.
-- **HTTPS:** Enabled through Cloudflare SSL/TLS.
 - **DNS delegation:** The domain uses Cloudflare nameservers.
+- **Hosting:** Cloudflare Pages project `ixchelone`.
+- **HTTPS:** Enabled through Cloudflare SSL/TLS for both hostnames.
 
 
 ## PDF Hosting
