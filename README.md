@@ -287,7 +287,7 @@ Example entry in `data/certificates.json`:
 
 ## License
 
-*Dual-license: MIT (code) + CC BY-NC-ND 4.0 (content).*   
+*Dual-license: MIT (code) + CC BY-NC-ND 4.0 (content).*
 Please refer to each license file for the full terms.
 
 ### Code
