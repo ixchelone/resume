@@ -23,6 +23,7 @@ Static résumé site with selected work, skills, and certifications; PDFs render
   - [Icons & Favicons](#icons--favicons)
 - [Local Dev](#local-dev)
 - [Build & Deploy](#build--deploy)
+  - [Production Domain & DNS](#production-domain--dns)
 - [PDF Hosting](#pdf-hosting)
 - [Data & Content Structure](#data--content-structure)
 - [Commit Conventions](#commit-conventions)
@@ -74,7 +75,7 @@ Static résumé site with selected work, skills, and certifications; PDFs render
   ```toml
   [params]
     brandName = "Ilona Ixchel Loučka"
-    profileImage = "images/profileImage.svg"
+    profileImage = "images/inguz.png"
     profileImageWidth = 32
     profileImageHeight = 32
   ```
@@ -117,6 +118,8 @@ Open: [http://localhost:1313/](http://localhost:1313/)
 
 Deployed via **Cloudflare Pages** (project `ixchelone`) using [GitHub Actions](.github/workflows/hugo.yaml) and the Cloudflare Wrangler CLI.
 
+The production deployment has been successfully verified, including the Hugo site, static assets, custom domain, HTTPS, and PDF delivery through the Pages Worker.
+
 - **Build (local):**
 
   ```bash
@@ -149,6 +152,14 @@ Deployed via **Cloudflare Pages** (project `ixchelone`) using [GitHub Actions](.
 
   Ensure `enableGitInfo = true` in [`config.toml`](./config.toml) and `fetch-depth: 0` in `actions/checkout` so Git metadata is available.
 
+### Production Domain & DNS
+- **Canonical domain:** `https://ixchelone.dev/`
+- **Domain registrar:** Porkbun.
+- **DNS provider:** Cloudflare.
+- **Hosting:** Cloudflare Pages project `ixchelone`.
+- **HTTPS:** Enabled through Cloudflare SSL/TLS.
+- **DNS delegation:** The domain uses Cloudflare nameservers.
+
 ## PDF Hosting
 PDF documents (certificates, certifications, courses, and the résumé) are stored as **GitHub Release assets** in the `credentials` release of [`ixchelone/resume`](https://github.com/ixchelone/resume/releases/tag/credentials).
 They are served inline through a **Cloudflare Pages Worker**, using the same domain as the Hugo portfolio.
@@ -167,8 +178,11 @@ They are served inline through a **Cloudflare Pages Worker**, using the same dom
 
 The `<type>` segment can be `certifications`, `certificates`, or `courses`.
 
-For testing before the custom domain is fully activated, the temporary Pages domain is also available:
+The default Cloudflare Pages domain remains available for deployment diagnostics and direct testing:
+
 `https://ixchelone.pages.dev/<filename>.pdf`
+
+The canonical production domain is `https://ixchelone.dev/`.
 
 ### Request handling
 The Worker handles PDF requests by fetching the matching asset from the GitHub Release.
@@ -177,6 +191,9 @@ The Worker sets the following response headers for PDF files:
 - `Content-Disposition: inline` — display the PDF in the browser.
 - `Content-Type: application/pdf`.
 - `Cache-Control: public, max-age=3600` — allow browser caching for approximately one hour.
+
+The PDF endpoint supports HTTP byte-range requests, allowing clients to retrieve partial content instead of downloading the entire document.
+Partial content delivery has been verified in production using HTTP `Range` requests and `206 Partial Content` responses.
 
 ### Why a Worker?
 The Worker provides stable, short PDF URLs under the portfolio's own domain, independently of GitHub's Release download URLs.
