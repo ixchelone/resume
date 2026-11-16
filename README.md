@@ -1,4 +1,5 @@
 # Personal Resume Website (Hugo)
+
 [![Live](https://img.shields.io/badge/-Live%20%E2%86%97-0d9488?style=flat-square)](https://ixchelone.dev/)
 [![Build](https://img.shields.io/github/actions/workflow/status/ixchelone/resume/hugo.yaml?branch=main&label=Build&style=flat-square)](https://github.com/ixchelone/resume/actions/workflows/hugo.yaml)
 [![Hugo](https://img.shields.io/badge/Hugo-e03582?style=flat-square&logo=hugo&logoColor=white)](https://gohugo.io/)
@@ -12,6 +13,7 @@
 Static résumé site with selected work, skills, and certifications; PDFs render inline in the browser.
 
 ## Table of Contents
+
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Theming & Assets](#theming--assets)
@@ -33,6 +35,7 @@ Static résumé site with selected work, skills, and certifications; PDFs render
   - [Third-Party Components](#third-party-components)
 
 ## Features
+
 - Clean, minimal site built with **Hugo**
 - Deployed on **Cloudflare Pages**
 - PDFs via **GitHub Releases**, proxied inline by a **Cloudflare Pages Worker**
@@ -49,6 +52,7 @@ Static résumé site with selected work, skills, and certifications; PDFs render
     *(generated as `public/css/app.min.<hash>.css`, served at `/css/app.min.<hash>.css`)*
 
 ## Technologies Used
+
 - [Hugo](https://gohugo.io/) — static site generator (Extended; version pinned in [CI](.github/workflows/hugo.yaml))
 - [Hugo Resume by Eddie Webb](https://github.com/eddiewebb/hugo-resume) — theme (as a git submodule)
 - [Cloudflare Pages](https://www.cloudflare.com/products/pages/) — hosting and deployment
@@ -60,12 +64,14 @@ Static résumé site with selected work, skills, and certifications; PDFs render
 ## Theming & Assets
 
 ### Theme (submodule) & safe customization
+
 - Upstream theme lives in `themes/resume/` (git submodule). Don’t edit it directly.
 - Override via local templates:
   - Layouts: `layouts/_default/`, `layouts/partials/`
   - Shortcodes: `layouts/shortcodes/` (e.g., `credentials.html`, `education.html`, `employment.html`, `languages.html`, `skills.html`)
 
 ### Navbar brand icon (`profileImage`)
+
 - Config-driven and CLS-safe (intrinsic `width`/`height` in HTML; defaults to 32×32 if unset).
 - **Default:** `static/images/profileImage.svg`
 - **Labels:** desktop `alt` and mobile label use `params.brandName` (fallback `.Site.Title`) set in [`config.toml`](./config.toml).
@@ -81,38 +87,44 @@ Static résumé site with selected work, skills, and certifications; PDFs render
   ```
 
 ### CSS (self-hosted)
-  - Site styles in `assets/css/`:
-    - `fonts.css` → `@font-face` declarations for local fonts
-    - `resume-override.css`, `tweaks.css` → your safe override layers (don’t patch the theme files)
-    - Vendor CSS in `assets/css/vendor/`
-  - Built via **Hugo Pipes** into a single, minified, fingerprinted bundle (see [**Features**](#features)).
+
+- Site styles in `assets/css/`:
+- `fonts.css` → `@font-face` declarations for local fonts
+- `resume-override.css`, `tweaks.css` → your safe override layers (don’t patch the theme files)
+  - Vendor CSS in `assets/css/vendor/`
+- Built via **Hugo Pipes** into a single, minified, fingerprinted bundle (see [**Features**](#features)).
 
 ### Fonts (self-hosted; third-party)
-  - Directories: `static/fonts/OpenSans/`, `static/fonts/Saira/`
-  - Referenced from `assets/css/fonts.css` via `@font-face`
-  - Licensing: **SIL OFL 1.1** — see **[NOTICE](./NOTICE)**
+
+- Directories: `static/fonts/OpenSans/`, `static/fonts/Saira/`
+- Referenced from `assets/css/fonts.css` via `@font-face`
+- Licensing: **SIL OFL 1.1** — see **[NOTICE](./NOTICE)**
 
 ### JavaScript (self-hosted)
-  - Site scripts in `static/js/`; vendor scripts in `static/js/vendor/`
-  - No external JS CDNs (served locally).
+
+- Site scripts in `static/js/`; vendor scripts in `static/js/vendor/`
+- No external JS CDNs (served locally).
 
 ### Icons & Favicons
-  - Favicons & manifests: `static/icons/` (`favicon.ico`, `site.webmanifest`, etc.)
-  - Template tags for icons live in `layouts/partials/favicon.html` — update filenames there if you replace assets.
+
+- Favicons & manifests: `static/icons/` (`favicon.ico`, `site.webmanifest`, etc.)
+- Template tags for icons live in `layouts/partials/favicon.html` — update filenames there if you replace assets.
 
 ## Local Dev
+
 Prereqs: Hugo **Extended**; init theme submodule once (after cloning):
+
   ```bash
   git submodule update --init --recursive
   ```
 
-Run: 
+Run:
+
   ```bash
   hugo server -D --disableFastRender
   ```
 
 Open: [http://localhost:1313/](http://localhost:1313/)
-
 
 ## Build & Deploy
 
@@ -153,6 +165,7 @@ The production deployment has been successfully verified, including the Hugo sit
   Ensure `enableGitInfo = true` in [`config.toml`](./config.toml) and `fetch-depth: 0` in `actions/checkout` so Git metadata is available.
 
 ### Production Domain & DNS
+
 - **Canonical domain:** [https://ixchelone.dev/](https://ixchelone.dev/)
 - **Alternative hostname:** [https://www.ixchelone.dev/](https://www.ixchelone.dev/)
 - **Canonical redirect:** All requests to the `www` hostname are permanently redirected to the apex domain using a Cloudflare Single Redirect (HTTP 301).
@@ -163,8 +176,8 @@ The production deployment has been successfully verified, including the Hugo sit
 - **Hosting:** Cloudflare Pages project `ixchelone`.
 - **HTTPS:** Enabled through Cloudflare SSL/TLS for both hostnames.
 
-
 ## PDF Hosting
+
 PDF documents (certificates, certifications, courses, and the résumé) are stored as **GitHub Release assets** in the `credentials` release of [`ixchelone/resume`](https://github.com/ixchelone/resume/releases/tag/credentials).
 
 They are served inline through a **Cloudflare Pages Worker**, using the same domain as the Hugo portfolio.
@@ -175,6 +188,7 @@ They are served inline through a **Cloudflare Pages Worker**, using the same dom
 - **Hosting:** Cloudflare Pages project `ixchelone`, with `ixchelone.dev` as the canonical production domain.
 
 ### Public URLs
+
 **Preferred short URLs:**
 `https://ixchelone.dev/<filename>.pdf`
 
@@ -189,10 +203,12 @@ The default Cloudflare Pages domain remains available for deployment diagnostics
 The canonical production domain is `https://ixchelone.dev/`.
 
 ### Request handling
+
 The Worker handles PDF requests by fetching the matching asset from the GitHub Release.
 All other requests are forwarded to Cloudflare Pages static assets through `env.ASSETS.fetch(request)`, allowing the same Pages project to serve the Hugo website.
 
 The Worker sets the following response headers for PDF files:
+
 - `Content-Disposition: inline` — display the PDF in the browser.
 - `Content-Type: application/pdf`.
 - `Cache-Control: public, max-age=3600` — allow browser caching for approximately one hour.
@@ -202,12 +218,14 @@ The PDF endpoint supports HTTP byte-range requests, allowing clients to retrieve
 Partial content delivery has been verified in production using HTTP `Range` requests and `206 Partial Content` responses, with the expected `Content-Range` and `Content-Length` headers.
 
 ### Cache behavior
+
 - **Worker response:** PDF responses include `Cache-Control: public, max-age=3600`, allowing browser caching for one hour.
 - **Cloudflare Browser Cache TTL:** The zone-level setting is configured as `Respect Existing Headers`, ensuring that Cloudflare respects the cache policy defined by the Worker instead of overriding it with a fixed browser TTL.
 - **Production verification:** Confirmed that production PDF responses return `Cache-Control: public, max-age=3600`.
 - **Implementation:** No additional Range-specific Worker code or deployment changes were required.
 
 ### Why a Worker?
+
 The Worker provides stable, short PDF URLs under the portfolio's own domain, independently of GitHub's Release download URLs.
 GitHub Releases remain the central storage location for all PDF assets.
 Uploading or replacing a GitHub Release asset without changing its filename or the corresponding JSON entry does not require a Hugo rebuild.
@@ -215,14 +233,18 @@ Adding a new credential to the portfolio requires updating the appropriate `data
 See [`cloudflare/README.md`](./cloudflare/README.md) for deployment details, routing, response headers, caching, and instructions on adding new PDF assets.
 
 ## Data & Content Structure
+
 Credential and course data lives in `data/` as JSON files:
+
 - `data/certifications.json` — professional certifications.
 - `data/certificates.json` — certificates and completed programs.
 - `data/courses.json` — courses and other training.
 Each entry contains structured information displayed by the corresponding Hugo shortcodes and partials.
 
 ### Minimal data model
+
 Example entry in `data/certificates.json`:
+
 ```json
 {
   "title": "CyberEdu NIS2 Academy",
@@ -234,6 +256,7 @@ Example entry in `data/certificates.json`:
 ```
 
 ### Data conventions
+
 - **Filenames:** Use unique, lowercase kebab-case filenames with the `.pdf` extension (e.g., `prince2-agile-practitioner.pdf`).
 - **GitHub Release assets:** Upload PDF files as individual assets to the `credentials` release in [`ixchelone/resume`](https://github.com/ixchelone/resume/releases/tag/credentials).
 - **Asset filenames:** The PDF filename referenced in the JSON `url` must exactly match the corresponding GitHub Release asset name.
@@ -246,6 +269,7 @@ Example entry in `data/certificates.json`:
 - **Rendering:** Credential entries are read from `data/*.json` and displayed through the corresponding Hugo shortcodes and partials.
 
 ## Commit Conventions
+
 - Follow [Conventional Commits](https://www.conventionalcommits.org/) style.
 - Use a **type** and a **scope** in round brackets (e.g., `feat(credentials)`).
 - Scope = logical area of change (e.g., `credentials`, `styles`, `config`).
@@ -253,25 +277,31 @@ Example entry in `data/certificates.json`:
 - **Title line**: short, concise, must fit on one line (no wrapping).
 - **Commit body**: optional; when used, written in bullet-point format.
 - A commit message template is provided in [`.gitmessage.txt`](./.gitmessage.txt).
-  - To enable it, run:  
+  - To enable it, run:
+
     ```bash
     git config commit.template .gitmessage.txt
     ```
+
   - After setup, simply run `git commit` (without `-m`) and the template will preload in your editor.
 
 ## License
+
 *Dual-license: MIT (code) + CC BY-NC-ND 4.0 (content).*   
 Please refer to each license file for the full terms.
 
 ### Code
+
 - **Source code, scripts, and configuration files** are licensed under the [MIT License](./LICENSE).  
 - **Includes (non-exhaustive):** [`config.toml`](./config.toml), `.github/`, `.vscode/`, `assets/` (CSS/JS), `layouts/`, `static/js/`, `cloudflare/`, and other build/config files.  
 - **Excludes:** submodules (e.g., `themes/resume/`), generated output such as `public/` and `resources/_gen/`.
 
 ### Content
+
 - **Original content:** Original written content and materials created for this project are licensed under [CC BY-NC-ND 4.0](./LICENSE-CC).
 - **Includes (non-exhaustive):** Original texts in `content/`, original portfolio descriptions and data entries in `data/`, and original visual assets in `static/images/` and `static/icons/`.
 - **Third-party documents:** Certificates, credentials, and other documents issued by third parties and hosted in GitHub Releases are provided for verification purposes only. They are **not covered by this project's CC BY-NC-ND 4.0 license** and remain subject to the applicable rights and terms of their respective issuers and other rights holders.
 
 ### Third-Party Components
+
 This project uses third-party components that are subject to their own licenses. For details on those components (e.g., fonts, Hugo Resume theme) and a full breakdown of licensing scopes, see the [NOTICE](./NOTICE) file.
