@@ -18,11 +18,19 @@ h1 {
   line-height: 1.2;
 }
 
-/* Compact every section and make dividers consistent */
-.resume-section {
+/* Consistent spacing for all standalone resume sections */
+section.resume-section {
   min-height: auto !important;
-  padding-top: 1rem !important;
-  padding-bottom: 1rem !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+/* Desktop spacing matches Bootstrap's p-lg-5 utility */
+@media (min-width: 992px) {
+  section.resume-section {
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+  }
 }
 
 .resume-section .resume-section-content {
