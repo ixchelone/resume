@@ -6,25 +6,56 @@
     "badge": "prince2-project-delivery.png",
     "date": "2024-12"
   },
+
   {
     "title": "PRINCE2® Webinar Series",
     "subtitle": "Mastering Project Priorities",
     "issuer": "PeopleCert",
     "badge": "prince2-project-priorities.png",
     "date": "2024-11"
-  }, 
-    {
+  },
+
+  {
     "title": "ITIL® Webinar Series",
     "subtitle": "Practice Guides",
     "issuer": "PeopleCert",
     "badge": "itil4-practice-guides.png",
     "date": "2024-10"
   },
+
   {
     "title": "ITIL® Webinar Series",
     "subtitle": "AI in ITSM",
     "issuer": "PeopleCert",
     "badge": "itil-ai-in-itsm.png",
     "date": "2024-06"
-  }
+  },
+
+  {
+    "title": "Code Foundations Skill Path",
+    "issuer": "Codecademy",
+    "url": "https://ixchelone.dev/code-foundations.pdf",
+    "date": "2021-05"
+  },
+
+  {
+    "title": "Learn How to Code Course",
+    "issuer": "Codecademy",
+    "url": "https://ixchelone.dev/learn-how-to-code.pdf",
+    "date": "2021-05"
+  },
+
+  {
+    "title": "Learn the Command Line Course",
+    "issuer": "Codecademy",
+    "url": "https://ixchelone.dev/learn-the-command-line.pdf",
+    "date": "2021-05"
+  },
+
+  {
+    "title": "Learn Bash Scripting Course",
+    "issuer": "Codecademy",
+    "url": "https://ixchelone.dev/learn-bash-scripting.pdf",
+    "date": "2021-04"
+  },
 ]
