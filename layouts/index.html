@@ -1,0 +1,7 @@
+{{ define "main" }}
+  {{ with .Site.GetPage "/about" }}
+    {{ partial "about.html" . }}
+  {{ end }}
+
+  {{ .Content }}
+{{ end }}
