@@ -13,10 +13,8 @@ Linux-native Prague-based engineer with 6+ years of IT experience ranging from o
 &nbsp;
 
 {{< languages >}}
-<h1 id="skills" class="intro-title">Technical Skills</h1>
 
 {{< skills >}}
-&nbsp;
 
 {{< employment >}}
 
