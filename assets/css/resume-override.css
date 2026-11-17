@@ -211,3 +211,15 @@ footer.site-footer {
     text-align-last: auto;
   }
 }
+
+/* Keep section anchors clear of the fixed mobile navbar */
+@media (max-width: 991.98px) {
+  #about,
+  #languages,
+  #skills,
+  #employment,
+  #education,
+  #credentials {
+    scroll-margin-top: 5rem;
+  }
+}
