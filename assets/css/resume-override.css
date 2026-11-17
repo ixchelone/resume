@@ -23,6 +23,30 @@ section.resume-section {
   min-height: auto !important;
   padding-left: 1rem !important;
   padding-right: 1rem !important;
+  border-bottom: 0 !important;
+  position: relative;
+}
+
+/* Inset divider matching the section content gutters */
+section.resume-section::after {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 0;
+  border-bottom: 1px solid #dee2e6;
+}
+
+@media (min-width: 992px) {
+  section.resume-section {
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+  }
+
+  section.resume-section::after {
+    left: 3rem;
+    right: 3rem;
+  }
 }
 
 /* Desktop spacing matches Bootstrap's p-lg-5 utility */
@@ -89,9 +113,9 @@ hr.m-0 {
   margin-bottom: 2rem !important;
 }
 
-/* Remove the theme's extra separator under the final section */
-.resume-section:last-of-type {
-  border-bottom: 0 !important;
+/* No divider after the final resume section */
+section.resume-section:last-of-type::after {
+  display: none;
 }
 
 footer.site-footer {
