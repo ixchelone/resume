@@ -43,8 +43,9 @@
     | fingerprint
   -}}
 
-  <link rel="preload" href="{{ $bundle.RelPermalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="{{ $bundle.Permalink }}" integrity="{{ $bundle.Data.Integrity }}"></noscript>
+  <link rel="stylesheet"
+        href="{{ $bundle.RelPermalink }}"
+        integrity="{{ $bundle.Data.Integrity }}">
 
   {{ hugo.Generator }}
   {{ partial "favicon.html" . }}
