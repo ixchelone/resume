@@ -15,14 +15,14 @@ Tento TODO je prováděcí plán. Každý úkol obsahuje cíl, konkrétní kroky
 
 ## Pracovní pravidla
 
-- [ ] Zachovat oddělení obsahu (`content/`, `data/`), prezentačních partialů a layout orchestrace.
-- [ ] Needitovat přímo upstream theme v `themes/resume/`; používat projektové overrides.
-- [ ] Po každé logické změně vytvořit lokální Hugo build a zkontrolovat výsledek.
-- [ ] Pro lokální build používat stejnou Hugo Extended verzi jako CI.
-- [ ] Po změnách obsahu zkontrolovat JSON syntaxi.
-- [ ] Jednotlivé nesouvisející změny commitovat odděleně podle Conventional Commits a pravidel z README.
-- [ ] Nevymýšlet měřitelné výsledky; použít pouze údaje, které lze doložit nebo poctivě vysvětlit.
-- [ ] Necommitovat `public/` ani `resources/`; jsou generované a v `.gitignore`.
+- Zachovat oddělení obsahu (`content/`, `data/`), prezentačních partialů a layout orchestrace.
+- Needitovat přímo upstream theme v `themes/resume/`; používat projektové overrides.
+- Po každé logické změně vytvořit lokální Hugo build a zkontrolovat výsledek.
+- Pro lokální build používat stejnou Hugo Extended verzi jako CI.
+- Po změnách obsahu zkontrolovat JSON syntaxi.
+- Jednotlivé nesouvisející změny commitovat odděleně podle Conventional Commits a pravidel z README.
+- Nevymýšlet měřitelné výsledky; použít pouze údaje, které lze doložit nebo poctivě vysvětlit.
+- Necommitovat `public/` ani `resources/`; jsou generované a v `.gitignore`.
 
 ---
 
