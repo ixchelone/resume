@@ -3,13 +3,6 @@
     "title": "Personal Resume Website",
     "period": "Aug 2025 – Present",
     "summary": "Designed and maintain a custom, data-driven résumé website built with Hugo, supported by an automated deployment pipeline and Cloudflare infrastructure.",
-    "highlights": [
-      "Customized the Hugo Resume theme through local layouts, partials, shortcodes, and CSS overrides while keeping the upstream theme isolated as a Git submodule.",
-      "Structured résumé content in JSON and built Hugo templates to render employment history, technical skills, education, languages, and credentials.",
-      "Implemented a GitHub Actions CI/CD workflow with change detection, a pinned Hugo Extended build, caching, and automated deployment to Cloudflare Pages using Wrangler.",
-      "Developed a Cloudflare Pages Worker that serves PDF documents stored as GitHub Release assets through stable URLs on the portfolio domain and forwards other requests to the site's static assets.",
-      "Self-hosted the site's CSS, JavaScript, and fonts; combined stylesheets with Hugo Pipes, minification, and fingerprinting for cache-friendly asset delivery."
-    ],
     "technologies": [
       "Hugo",
       "Go Templates",
