@@ -8,6 +8,8 @@ title = "Resume"
 
 {{< employment >}}
 
+{{< projects >}}
+
 {{< education >}}
 
 {{< credentials >}}

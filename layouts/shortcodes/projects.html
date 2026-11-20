@@ -1,0 +1,67 @@
+{{- $projects := site.Data.projects -}}
+
+<section id="projects" class="resume-section">
+  <div class="resume-section-content">
+    <h2>Projects &amp; Independent Work</h2>
+
+    {{- if gt (len $projects) 0 }}
+      <div class="projects-list">
+        {{- range $projects }}
+          <article class="mb-4">
+
+            <div class="d-flex justify-content-between flex-wrap">
+              <div>
+                <strong>{{ .title }}</strong>
+              </div>
+
+              {{- with .period }}
+                <div class="text-muted">{{ . }}</div>
+              {{- end }}
+            </div>
+
+            {{- with .summary }}
+              <div class="mt-1">{{ . }}</div>
+            {{- end }}
+
+            {{- with .highlights }}
+              <ul class="mt-2 mb-0">
+                {{- range . }}
+                  <li>{{ . }}</li>
+                {{- end }}
+              </ul>
+            {{- end }}
+
+            {{- with .technologies }}
+              <div class="text-muted mt-2">
+                <strong>Technologies:</strong>
+                {{ delimit . " · " }}
+              </div>
+            {{- end }}
+
+            {{- if or .website .repository }}
+              <div class="text-muted mt-2">
+
+                {{- with .website }}
+                  <a href="{{ . }}" target="_blank" rel="noopener noreferrer">
+                    Website
+                  </a>
+                {{- end }}
+
+                {{- if and .website .repository }} · {{ end -}}
+
+                {{- with .repository }}
+                  <a href="{{ . }}" target="_blank" rel="noopener noreferrer">
+                    Source code
+                  </a>
+                {{- end }}
+
+              </div>
+            {{- end }}
+
+          </article>
+        {{- end }}
+      </div>
+    {{- end }}
+
+  </div>
+</section>
