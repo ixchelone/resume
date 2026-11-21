@@ -104,7 +104,7 @@ Tento TODO je prováděcí plán. Každý úkol obsahuje cíl, konkrétní kroky
 
 ---
 
-## P0.4 – Přepsat Employment History na výsledky a dopady
+## P0.3 – Přepsat Employment History na výsledky a dopady
 
 **Problém:** 37 highlightů napříč pěti pozicemi převážně popisuje úkoly, nástroje a technologie. Doporučený výsledný rozsah je 2–4 silné body na roli.
 
