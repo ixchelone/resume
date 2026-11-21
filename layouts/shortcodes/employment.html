@@ -12,7 +12,7 @@
           <div class="mb-4">
             <div class="d-flex justify-content-between flex-wrap">
               <div>
-                <strong>{{ .role }}</strong>, {{ .company }}
+                <strong>{{ .role }}</strong>{{ with .company }}, {{ . }}{{ end }}
               </div>
               <div class="text-muted">
               {{- if $start -}}{{ $start | time | time.Format "Jan 2006" }}{{- end -}}
