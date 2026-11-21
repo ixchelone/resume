@@ -219,23 +219,7 @@ Současné oblasti: L1 network support, Cisco, incident resolution, on-call, ně
 - [ ] Porovnat požadavky s doloženou praxí v `employment.json` a `skills.json`.
 - [ ] Zkontrolovat konzistenci headline v About, PDF CV, metadata a případně LinkedIn.
 
-## P1.2 – Přepsat Professional Summary
-
-**Soubor:** `content/about/index.md`.
-
-- [ ] Po výběru headline upravit první větu.
-- [ ] Ověřit délku IT zkušeností před uvedením čísel.
-- [ ] Vybrat 3–5 hlavních technických oblastí, které jsou doložené Employment History.
-- [ ] Připomenout typy prostředí (např. telco, media technology, enterprise IT), pokud jsou relevantní pro cílové role.
-- [ ] Nahradit „broad technical skill set“ konkrétními technologiemi a kompetencemi.
-- [ ] Odstranit nebo přeformulovat obecné fráze „take initiative to maintain momentum“ a „keep communication plain and actionable“, pokud nepřinášejí konkrétní hodnotu.
-- [ ] Nepoužívat více buzzwordů než potřebuje stručné profesní shrnutí.
-- [ ] Udržet přibližně 3–4 věty a přiměřenou délku.
-- [ ] Připravit dvě varianty, pokud bude potřeba obecný a cílený profil (Infrastructure / Cloud & DevOps).
-
-**Akceptace:** Summary je konkrétní, odpovídá uvedeným zkušenostem a nevytváří nepodložená tvrzení.
-
-## P1.3 – Období po srpnu 2024 / Projects / Professional Development
+## P1.2 – Období po srpnu 2024 / Projects / Professional Development
 
 **Možné soubory:** nové `data/projects.json`, `layouts/shortcodes/projects.html`, `content/_index.md`, případně samostatný headless content bundle.
 
@@ -273,7 +257,7 @@ Repozitář dokládá osobní projekt s následujícími technologiemi a činnos
 - [ ] Žádná aktivita není prezentována jako zaměstnání, pokud zaměstnáním nebyla.
 - [ ] Osobní projekty mají jasné názvy, technologie, období a stručný výsledek.
 
-## P1.4 – Uspořádat a kategorizovat Technical Skills
+## P1.3 – Uspořádat a kategorizovat Technical Skills
 
 **Soubor:** `data/skills.json`.
 
@@ -312,7 +296,7 @@ Repozitář dokládá osobní projekt s následujícími technologiemi a činnos
 - [ ] Všechny úrovně jsou obhajitelné konkrétní zkušeností.
 - [ ] Skills nejsou jen co nejdelší seznam; podporují cílové pracovní role.
 
-## P1.5 – Zpřesnit názvy Credentials podsekcí
+## P1.4 – Zpřesnit názvy Credentials podsekcí
 
 **Soubor:** `layouts/shortcodes/credentials.html`.
 
@@ -341,7 +325,7 @@ Současné skupiny:
 - [ ] Anchor IDs zůstávají funkční.
 - [ ] Data a odkazy jsou ověřené.
 
-## P1.6 – Opravit nejasnosti v Education
+## P1.5 – Opravit nejasnosti v Education
 
 **Soubor:** `data/education.json`.
 
@@ -354,7 +338,7 @@ Současné skupiny:
 
 # P1 – CI, reprodukovatelnost a data
 
-## P1.7 – Sjednotit Hugo Extended verzi
+## P1.6 – Sjednotit Hugo Extended verzi
 
 **Soubory:** `.github/workflows/hugo.yaml`, lokální vývojové instrukce / README, případně instalační skript.
 
@@ -367,7 +351,7 @@ Současné skupiny:
 
 **Akceptace:** lokální a CI build používají stejnou verzi Hugo Extended a nevznikají rozdíly jen kvůli verzi generátoru.
 
-## P1.8 – Přidat JSON validaci do GitHub Actions
+## P1.7 – Přidat JSON validaci do GitHub Actions
 
 **Soubor:** `.github/workflows/hugo.yaml`.
 
@@ -400,7 +384,7 @@ Příklad kroku:
 
 **Akceptace:** syntakticky chybný JSON nemůže projít do production deploymentu.
 
-## P1.9 – Opravit CSS syntaxi a odstranit duplicity
+## P1.8 – Opravit CSS syntaxi a odstranit duplicity
 
 **Soubor:** `assets/css/resume-override.css`.
 
