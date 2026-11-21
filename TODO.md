@@ -214,9 +214,9 @@ Současné oblasti: L1 network support, Cisco, incident resolution, on-call, ně
 ## P1.1 – Vybrat headline / cílové role
 
 - [x] Rozhodnout, zda primární cílení bude Infrastructure & Cloud Engineer, IT Infrastructure Engineer nebo Cloud & DevOps Engineer.
+- [x] Zvolit jeden primární headline: Infrastructure & DevOps Engineer.
 - [ ] Projít aktuální pracovní nabídky, na které má CV cílit, a identifikovat opakující se požadavky.
 - [ ] Porovnat požadavky s doloženou praxí v `employment.json` a `skills.json`.
-- [x] Zvolit jeden primární headline: Infrastructure & DevOps Engineer.
 - [ ] Zkontrolovat konzistenci headline v About, PDF CV, metadata a případně LinkedIn.
 
 ## P1.2 – Přepsat Professional Summary
