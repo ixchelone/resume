@@ -15,7 +15,7 @@
                 <strong>{{ .role }}</strong>{{ with .company }}, {{ . }}{{ end }}
               </div>
               <div class="text-muted">
-              {{- if $start -}}{{ $start | time | time.Format "Jan 2006" }}{{- end }} — {{ if $end }}{{ $end | time | time.Format "Jan 2006" }}{{ else }}Present{{ end -}}
+              {{- if $start -}}{{ $start | time | time.Format "Jan 2006" }}{{- end }}—{{ if $end }}{{ $end | time | time.Format "Jan 2006" }}{{ else }}Present{{ end -}}
               </div>
             </div>
 
