@@ -1,5 +1,5 @@
 [
   { "name": "English", "level": 90, "keywords": ["C1 (advanced)"] },
   { "name": "Czech", "level": 100, "keywords": ["C2 (native)"] },
-  { "name": "German", "level": 80, "keywords": ["B2 (intermediate, passive)"] }
+  { "name": "German", "level": 80, "keywords": ["B2 (intermediate)"] }
 ]
