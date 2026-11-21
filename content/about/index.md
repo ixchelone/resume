@@ -8,5 +8,5 @@ headless = true
 <h2 class="intro-subtitle">Infrastructure & DevOps Engineer</h2>
 
 <p class="justify-square">
-Linux-native technologist with 7+ years of IT experience ranging from operations to DevOps and cloud exposure. I’ve supported startups and global enterprises, and my hands-on experience includes building pipelines, maintaining infrastructure, or implementing monitoring stacks.
+Linux-native technologist with 7+ years of IT experience spanning IT operations and DevOps, with exposure to cloud environments. I’ve supported startups and global enterprises, and my hands-on experience includes building pipelines, maintaining infrastructure, or implementing monitoring stacks.
 </p>
