@@ -13,8 +13,8 @@
                 <strong>{{ .degree }}</strong><br>
                 {{ .institution }}<br>
                 {{- with .field }}{{ . }}<br>{{ end -}}
-                {{- with .notes }}{{ . }}<br>{{ end -}}
                 {{- with .location }}{{ . }}{{ end -}}
+                {{- with .notes }}{{ . }}<br>{{ end -}}
               </div>
               <div class="text-muted">
                 {{ .range }}
