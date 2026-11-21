@@ -104,41 +104,6 @@ Tento TODO je prováděcí plán. Každý úkol obsahuje cíl, konkrétní kroky
 
 ---
 
-## P0.3 – Ověřit tvrzení „7+ years of IT experience“
-
-**Problém:** `content/about/index.md` uvádí 7+ let, ale `data/employment.json` obsahuje jen 63 měsíců zaznamenaných zaměstnání.
-
-### Výpočet ze současného `employment.json`
-
-| Zaměstnavatel | Období | Měsíce |
-|---|---|---:|
-| NTT | 2019-04 až 2020-06 | 15 |
-| Amazon | 2020-07 až 2020-09 | 3 |
-| Chyron | 2020-12 až 2022-04 | 17 |
-| T-Mobile | 2022-05 až 2023-08 | 16 |
-| Zentity | 2023-09 až 2024-08 | 12 |
-| **Celkem** | | **63 = 5 let a 3 měsíce** |
-
-Časová osa April 2019–August 2024 obsahuje 65 kalendářních měsíců, z toho 2 měsíce (2020-10 a 2020-11) bez uvedené role.
-
-### Kroky
-
-- [ ] Prověřit, zda existovala relevantní IT praxe před dubnem 2019.
-- [ ] Prověřit freelance, DPP, DPP/DPČ, OSVČ, internship nebo jiné relevantní práce, které nejsou v `employment.json`.
-- [ ] Rozlišit zaměstnaneckou praxi od osobních projektů a samostudia.
-- [ ] Rozhodnout, jaký typ zkušenosti se legitimně započítává do tvrzení „7+ years“.
-- [ ] Pokud existují další pozice, ověřit jejich datum, roli, firmu a rozsah a doplnit je do Employment History, pokud jsou relevantní.
-- [ ] Pokud další relevantní zkušenost neexistuje, upravit počet let na hodnotu doložitelnou uvedenou praxí.
-- [ ] Aktualizovat stejný údaj konzistentně v About a všech dalších výskytech (Summary, meta description, PDF CV, LinkedIn apod. podle potřeby).
-
-### Akceptační kritéria
-
-- [ ] Počet let odpovídá doloženým zkušenostem.
-- [ ] Rozlišení zaměstnání, freelance a osobních projektů je transparentní.
-- [ ] Text se dá obhájit při pohovoru.
-
----
-
 ## P0.4 – Přepsat Employment History na výsledky a dopady
 
 **Problém:** 37 highlightů napříč pěti pozicemi převážně popisuje úkoly, nástroje a technologie. Doporučený výsledný rozsah je 2–4 silné body na roli.
