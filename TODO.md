@@ -325,17 +325,6 @@ Současné skupiny:
 - [ ] Anchor IDs zůstávají funkční.
 - [ ] Data a odkazy jsou ověřené.
 
-## P1.5 – Opravit nejasnosti v Education
-
-**Soubor:** `data/education.json`.
-
-- [ ] Ověřit, zda `Bachelor's (terminated)` je nejpřesnější a pro anglicky mluvícího recruitera srozumitelný popis studia na Ambis.
-- [ ] Ověřit, zda `Bachelor's (transferred)` u University of Economics nevytváří dojem získaného titulu. Pokud šlo pouze o nedokončené studium a přenos kreditů, zvážit přesnější text typu `Bachelor's studies (transferred)`.
-- [ ] Zkontrolovat anglické názvy institucí a studijních oborů.
-- [ ] Zachovat pravdivé datum a místo.
-
----
-
 # P1 – CI, reprodukovatelnost a data
 
 ## P1.6 – Sjednotit Hugo Extended verzi
