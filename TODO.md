@@ -327,7 +327,7 @@ Současné skupiny:
 
 # P1 – CI, reprodukovatelnost a data
 
-## P1.6 – Sjednotit Hugo Extended verzi
+## P1.5 – Sjednotit Hugo Extended verzi
 
 **Soubory:** `.github/workflows/hugo.yaml`, lokální vývojové instrukce / README, případně instalační skript.
 
@@ -340,7 +340,7 @@ Současné skupiny:
 
 **Akceptace:** lokální a CI build používají stejnou verzi Hugo Extended a nevznikají rozdíly jen kvůli verzi generátoru.
 
-## P1.7 – Přidat JSON validaci do GitHub Actions
+## P1.6 – Přidat JSON validaci do GitHub Actions
 
 **Soubor:** `.github/workflows/hugo.yaml`.
 
@@ -373,7 +373,7 @@ Příklad kroku:
 
 **Akceptace:** syntakticky chybný JSON nemůže projít do production deploymentu.
 
-## P1.8 – Opravit CSS syntaxi a odstranit duplicity
+## P1.7 – Opravit CSS syntaxi a odstranit duplicity
 
 **Soubor:** `assets/css/resume-override.css`.
 
