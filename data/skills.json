@@ -1,14 +1,15 @@
 [
-  { "category": "Cloud Computing", "items": ["Azure (FW, GW, VM)", "OpenStack", "VMware ESXi", "Hyper-V", "AWS (WorkSpaces, S3, CloudTrail)", "Cloudflare"] },
-  { "category": "Virtualization", "items": [ "WSL 2", "VMware Workstation", "Oracle VirtualBox"] },
-  { "category": "Containerization", "items": ["Docker", "Kubernetes", "Minikube", "OpenShift", "Minishift"] },
-  { "category": "Scripting & Automation", "items": ["Python", "Bash", "PowerShell", "jq", "AI-assisted coding", "Prompt engineering"] },
-  { "category": "Operating Systems", "items": ["Linux", "Windows"] },
-  { "category": "Monitoring & Diagnostics", "items": ["Zabbix", "ELK", "AppDynamics", "Dynatrace", "TrueSight", "Wireshark", "tcpdump"] },
-  { "category": "Networking", "items": ["CCNA-level concepts", "nginx", "Apache"] },
-  { "category": "Security", "items": ["IAM (AD, Entra ID)", "PAM (CyberArk)", "CyberChef", "Cryptography (sym/asym, hashing)", "YARA", "VPN", "Postman", "Burp Suite", "SIEM (Splunk)", "msfvenom", "nc", "gobuster", "nikto"] },
-  { "category": "CI/CD", "items": ["GitHub Actions", "Jenkins"] },
-  { "category": "Version Control", "items": ["Git", "Visual Studio"] },
-  { "category": "Database", "items": ["MySQL", "Oracle", "NoSQL (Redis)", "KQL (Kibana)", "DQL (Obsidian Dataview)"] },
-  { "category": "ITSM Tools", "items": ["Atlassian", "Remedy", "HPSM", "ServiceNow", "Salesforce"] }
+  { "category": "Systems Administration", "items": ["Linux", "Windows"] },
+  { "category": "Containerization & Virtualization", "items": [ "Docker", "Kubernetes", "Minikube", "OpenShift", "Minishift", "WSL 2", "VMware Workstation", "Oracle VirtualBox", "VMware ESXi", "Hyper-V"] },
+  { "category": "Automation & Scripting", "items": ["Python", "Bash", "PowerShell", "jq"] },
+  { "category": "CI/CD & Version Control", "items": ["Git", "GitHub Actions", "Jenkins"] },
+  { "category": "Databases & Data Stores", "items": ["MySQL", "Oracle", "Redis"] },
+  { "category": "ITSM & Enterprise Systems", "items": ["Atlassian", "Remedy", "HPSM", "ServiceNow", "Salesforce"] }, 
+  { "category": "Monitoring & Observability", "items": ["Zabbix", "Elastic Stack (ELK)", "AppDynamics", "Dynatrace", "TrueSight", "Kibana Query Language (KQL)"] },
+  { "category": "Networking & Diagnostics", "items": ["CCNA-level concepts", "VPN", "Wireshark", "tcpdump", "Netcat"] },
+  { "category": "Infrastructure & Cloud", "items": ["Azure (Firewall, Gateway, Virtual Machines)", "OpenStack", "AWS (WorkSpaces, S3, CloudTrail)", "Cloudflare"] },
+  { "category": "Web Infrastructure", "items": ["Nginx", "Apache"] },
+  { "category": "Security & Identity", "items": ["IAM (AD, Entra ID)", "PAM (CyberArk)", "Cryptography (symmetric/asymmetric, hashing)"] },
+  { "category": "Security Analysis & Testing", "items": ["CyberChef", "SIEM (Splunk)", "Burp Suite", "msfvenom (Metasploit Framework)", "gobuster", "nikto", "YARA"] },
+  { "category": "Developer & Productivity Tools", "items": ["Dataview Query Language (Obsidian)", "Visual Studio Code", "Postman"] }
 ]
