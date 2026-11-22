@@ -1,5 +1,5 @@
 [
-  { "category": "Cloud Computing", "items": ["Azure (FW, GW, VM)", "OpenStack", "VMware ESXi Hyper-V", "AWS (WorkSpaces, S3, CloudTrail)", "Cloudflare"] },
+  { "category": "Cloud Computing", "items": ["Azure (FW, GW, VM)", "OpenStack", "VMware ESXi", "Hyper-V", "AWS (WorkSpaces, S3, CloudTrail)", "Cloudflare"] },
   { "category": "Virtualization", "items": [ "WSL 2", "VMware Workstation", "Oracle VirtualBox"] },
   { "category": "Containerization", "items": ["Docker", "Kubernetes", "Minikube", "OpenShift", "Minishift"] },
   { "category": "Scripting & Automation", "items": ["Python", "Bash", "PowerShell", "jq", "AI-assisted coding", "Prompt engineering"] },
