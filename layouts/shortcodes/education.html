@@ -14,8 +14,15 @@
                 {{ .institution }}<br>
                 {{- with .field }}{{ . }}<br>{{ end -}}
                 {{- with .location }}{{ . }}<br>{{ end -}}
-                {{- with .notes }}{{ . }}{{ end -}}
+                {{- with .notes }}{{ . }}<br>{{ end -}}
+
+                {{- with .website }}
+                  <a href="{{ printf "https://%s" . }}"
+                     target="_blank"
+                     rel="noopener noreferrer">Website</a>
+                {{- end }}
               </div>
+
               <div class="text-muted text-end flex-shrink-0" style="white-space: nowrap;">
                 {{ .range }}
               </div>
