@@ -4,7 +4,8 @@
     "range": "2022—2023",
     "institution": "Ambis University",
     "field": "Economics and Management",
-    "location": "Prague, Czechia"
+    "location": "Prague, Czechia",
+    "website": "ambis.cz"
   },
   {
     "degree": "Bachelor's studies",
@@ -12,14 +13,16 @@
     "institution": "University of Economics",
     "field": "Faculty of Management",
     "notes": "Credits transferred to Ambis",
-    "location": "Jindřichův Hradec, Czechia"
+    "location": "Jindřichův Hradec, Czechia",
+    "website": "fm.vse.cz"
   },
   {
     "degree": "High school diploma",
     "range": "2016—2017",
-    "institution": "OA Praha",
+    "institution": "Business Academy Prague",
     "field": "Business and Administration",
-    "location": "Prague-Satalice, Czechia"
+    "location": "Prague-Satalice, Czechia",
+    "website": "oapraha.cz"
   },
   {
     "degree": "High school",
@@ -27,6 +30,7 @@
     "institution": "Schiller‑Gymnasium",
     "field": "STEM (bilingual program)",
     "notes": "Transferred to OA Praha",
-    "location": "Pirna, Germany"
+    "location": "Pirna, Germany",
+    "website": "schillergymnasium-pirna.de"
   }
 ]
