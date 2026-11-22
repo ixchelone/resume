@@ -11,7 +11,7 @@
     "end": "2024-08-31",
     "summary": "L2/L3 support for cross-functional projects, deployments, and automation in telco and cloud environments.",
     "highlights": [
-    "Deployed Docker images across test & prod, verifying application availability & data retrieval through curl & Postman during deployments & version updates.",
+    "Deployed developer-provided Docker images across test and production environments, verifying application availability and data retrieval through curl and Postman during deployments and version updates.",
     "Reviewed OpenShift project access and removed obsolete former-employee accounts using administrative privileges, helping maintain up-to-date access controls.",
     "Reorganized and maintained a centralized Excel tracker covering several dozen client projects, validating project information and team assignments directly with employees across the organization and linking records to Jira and Confluence. Established an updated company-wide source of project information that simplified cross-functional coordination and project handovers.",
     "Prepared ITIL-aligned process improvement proposals for support and operations, covering incident management, testing, disaster recovery, and handovers between Development and Operations. Organized proposed changes into epics and tasks in a dedicated Jira project and coordinated discussions with DevOps engineers, cloud architects, and senior management."
