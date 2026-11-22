@@ -9,6 +9,6 @@
   { "category": "Security", "items": ["IAM (AD, Entra ID)", "PAM (CyberArk)", "CyberChef", "Cryptography (sym/asym, hashing)", "YARA", "VPN", "Postman", "Burp Suite", "SIEM (Splunk)", "msfvenom", "nc", "gobuster", "nikto"] },
   { "category": "CI/CD", "items": ["GitHub Actions", "Jenkins"] },
   { "category": "Version Control", "items": ["Git", "Visual Studio"] },
-  { "category": "Database", "items": ["MySQL", "Oracle", "NoSQL (Redis)", "KQL (Kibana)", "DQL (Obsidian)"] },
+  { "category": "Database", "items": ["MySQL", "Oracle", "NoSQL (Redis)", "KQL (Kibana)", "DQL (Obsidian Dataview Query)"] },
   { "category": "ITSM Tools", "items": ["Atlassian", "Remedy", "HPSM", "ServiceNow", "Salesforce"] }
 ]
