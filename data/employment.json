@@ -39,7 +39,7 @@
     ]
   },
   {
-    "role": "Technical Support",
+    "role": "Customer Success Engineer",
     "company": "Chyron",
     "start": "2020-12-01",
     "end": "2022-04-30",
@@ -51,13 +51,13 @@
       "Applied configuration changes using Python regex scripting.",
       "Migrated changes to test/prod environments.",
       "Provided tech support for EMEA and US teams; acted as primary German POC.",
-      "Managed Customer Success and ITSM in Salesforce.",
+      "Managed customer success workflows and ITSM processes in Salesforce.",
       "Documented procedures in Confluence and G-Suite.",
       "Acquired expertise in proprietary media software and hardware."
     ]
   },
   {
-    "role": "OpsTech IT Engineer",
+    "role": "IT Support Specialist",
     "company": "Amazon",
     "start": "2020-07-01",
     "end": "2020-09-30",
