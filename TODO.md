@@ -73,38 +73,7 @@ Tento TODO je prováděcí plán. Každý úkol obsahuje cíl, konkrétní kroky
 
 ---
 
-## P0.2 – Opravit počáteční stav badge lightbox obrázku
-
-**Problém:** `baseof.html` obsahuje `<img id="badge-image" alt="Course badge">` bez `src`. Uživatel nahlásil zobrazení „Course badge“ na konci stránky.
-
-**Dotčené soubory:**
-
-- `layouts/_default/baseof.html`
-- případně `assets/css/resume-override.css`
-
-### Kroky
-
-- [ ] Zkontrolovat počáteční DOM a computed visibility obrázku při běžném načtení stránky.
-- [ ] Přidat explicitní počáteční skrytí obrázku, dokud není úspěšně načten (např. `hidden` / vlastní stavová třída).
-- [ ] Zkontrolovat CSS `.ilx-lightbox img { display: block; }`; zajistit, aby obecné `display:block` nepřebilo počáteční skrytí.
-- [ ] Při úspěšném načtení předobrazu nastavit `img.src` a zobrazit obrázek až při otevření lightboxu.
-- [ ] Při zavření obrázek opět skrýt a odstranit `src`.
-- [ ] Zachovat přístupný a smysluplný `alt` text; neřešit problém pouze vymazáním alternativního textu.
-- [ ] Ošetřit neúspěšné načtení obrázku tak, aby se lightbox neotevřel s rozbitým obrázkem.
-- [ ] Otestovat kliknutí na badge odkaz, zavření tlačítkem, kliknutí mimo dialog a klávesu Escape.
-- [ ] Ověřit, že při běžném načtení stránky není vidět text „Course badge“ ani ikona rozbitého obrázku.
-
-### Akceptační kritéria
-
-- [ ] Při běžném načtení stránky není badge image viditelný.
-- [ ] Kliknutí na badge otevře lightbox se správným obrázkem.
-- [ ] Po zavření se obrázek skryje a `src` se odstraní.
-- [ ] Neúspěšné načtení nezanechá rozbitý lightbox.
-- [ ] Klávesové ovládání zůstane funkční.
-
----
-
-## P0.3 – Přepsat Employment History na výsledky a dopady
+## P0.2 – Přepsat Employment History na výsledky a dopady
 
 **Problém:** 37 highlightů napříč pěti pozicemi převážně popisuje úkoly, nástroje a technologie. Doporučený výsledný rozsah je 2–4 silné body na roli.
 
