@@ -7,7 +7,7 @@
   { "category": "ITSM & Enterprise Systems", "items": ["Atlassian", "Remedy", "HPSM", "ServiceNow", "Salesforce"] }, 
   { "category": "Monitoring & Observability", "items": ["Zabbix", "Elastic Stack (ELK)", "AppDynamics", "Dynatrace", "TrueSight", "Kibana Query Language (KQL)"] },
   { "category": "Networking & Diagnostics", "items": ["CCNA-level concepts", "VPN", "Wireshark", "tcpdump", "Netcat"] },
-  { "category": "Infrastructure & Cloud", "items": ["Azure (Firewall, Gateway, Virtual Machines)", "OpenStack", "AWS (WorkSpaces, S3, CloudTrail)", "Cloudflare"] },
+  { "category": "Infrastructure & Cloud", "items": ["Azure", "OpenStack", "AWS (WorkSpaces, S3, CloudTrail)", "Cloudflare"] },
   { "category": "Web Infrastructure", "items": ["Nginx", "Apache"] },
   { "category": "Security & Identity", "items": ["IAM (AD, Entra ID)", "PAM (CyberArk)", "Cryptography (symmetric/asymmetric, hashing)"] },
   { "category": "Security Analysis & Testing", "items": ["CyberChef", "SIEM (Splunk)", "Burp Suite", "msfvenom (Metasploit Framework)", "gobuster", "nikto", "YARA"] },
