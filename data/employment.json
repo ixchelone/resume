@@ -19,17 +19,20 @@
     "technologies": [
       "Docker",
       "OpenShift",
+      "Azure (Firewall, Gateway, VMs)",
+      "Jenkins",
+      "Sonatype Nexus Repository",
+      "Python", 
+      "Bash",
       "curl",
       "Postman",
       "Excel",
       "Jira",
       "Confluence",
-      "Azure (Firewall, Gateway, VMs)",
-      "Jenkins",
-      "Sonatype Nexus Repository",
-      "Python, Bash",
-      "Zabbix, ELK",
-      "Nginx, Redis"
+      "Zabbix",
+      "ELK",
+      "Nginx",
+      "Redis"
     ]
   },
   {
