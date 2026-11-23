@@ -38,14 +38,15 @@
                 </ul>
               {{- end }}
 
-              {{- if and .technologies (gt (len .technologies) 0) }}
-                <div class="tech-stack">
-                  <span class="tech-stack-label">Tech stack</span>
-                  <span>{{ delimit .technologies " · " }}</span>
-                </div>
-              {{- end }}
-
             </div>
+
+            {{- if and .technologies (gt (len .technologies) 0) }}
+              <div class="tech-stack">
+                <span class="tech-stack-label">Tech stack</span>
+                <span>{{ delimit .technologies " · " }}</span>
+              </div>
+            {{- end }}
+
           </div>
         {{- end }}
       </div>
