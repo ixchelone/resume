@@ -37,8 +37,9 @@
             {{- end }}
 
             {{- if and .technologies (gt (len .technologies) 0) }}
-              <div class="mt-2">
-                <strong>Technologies:</strong> {{ delimit .technologies ", " }}
+              <div class="employment-technologies">
+                <span class="employment-technologies-label">Technologies</span>
+                <span>{{ delimit .technologies " · " }}</span>
               </div>
             {{- end }}
 
