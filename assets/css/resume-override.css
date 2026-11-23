@@ -75,14 +75,10 @@ hr.m-0 {
 
 /* Employment History */
 
-/* Compact bullets in Employment */
-#employment ul { margin-left: 1rem; }
-#employment li { margin-bottom: .25rem; }
-
-/* Tighter, lighter bullets for job highlights */
+/* Employment: compact highlight lists */
 #employment ul {
-  margin-top: 0.4rem;
-  margin-bottom: 0;
+  margin: 0.4rem 0 0;
+  padding-left: 2em;
 }
 
 #employment ul li {
