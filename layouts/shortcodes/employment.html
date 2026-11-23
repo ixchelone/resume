@@ -37,8 +37,8 @@
             {{- end }}
 
             {{- if and .technologies (gt (len .technologies) 0) }}
-              <div class="employment-technologies">
-                <span class="employment-technologies-label">Tech stack</span>
+              <div class="tech-stack">
+                <span class="tech-stack-label">Tech stack</span>
                 <span>{{ delimit .technologies " · " }}</span>
               </div>
             {{- end }}

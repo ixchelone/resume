@@ -23,10 +23,10 @@
               <div class="mt-1">{{ . }}</div>
             {{- end }}
 
-            {{- with .technologies }}
-              <div class="text-muted mt-2">
-                <strong>Technologies:</strong>
-                {{ delimit . " · " }}
+            {{- if and .technologies (gt (len .technologies) 0) }}
+              <div class="tech-stack">
+                <span class="tech-stack-label">Tech stack</span>
+                <span>{{ delimit .technologies " · " }}</span>
               </div>
             {{- end }}
 
