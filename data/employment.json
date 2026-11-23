@@ -17,15 +17,19 @@
     "Prepared ITIL-aligned improvement proposals for incident management, testing, disaster recovery, and Development–Operations handovers; structured actions in Jira and coordinated reviews with DevOps, cloud architects, and senior management."
     ],
     "technologies": [
+      "Docker",
+      "OpenShift",
+      "curl",
+      "Postman",
+      "Excel",
+      "Jira",
+      "Confluence",
       "Azure (Firewall, Gateway, Virtual Machines)",
       "Jenkins",
       "Sonatype Nexus Repository",
-      "Python",
-      "Bash",
-      "Zabbix",
-      "ELK",
-      "Nginx",
-      "Redis"
+      "Python, Bash",
+      "Zabbix, ELK",
+      "Nginx, Redis"
     ]
   },
   {
