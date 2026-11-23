@@ -20,29 +20,32 @@
               </div>
             </div>
 
-            {{- with .company }}
-              <div>{{ . }}</div>
-            {{- end }}
+            <div class="employment-details">
 
-            {{- if .summary }}
-              <div class="mt-1">{{ .summary }}</div>
-            {{- end }}
+              {{- with .company }}
+                <div>{{ . }}</div>
+              {{- end }}
 
-            {{- if and .highlights (gt (len .highlights) 0) }}
-              <ul class="mt-2 mb-0">
-                {{- range .highlights }}
-                  <li>{{ . }}</li>
-                {{- end }}
-              </ul>
-            {{- end }}
+              {{- if .summary }}
+                <div class="mt-1">{{ .summary }}</div>
+              {{- end }}
 
-            {{- if and .technologies (gt (len .technologies) 0) }}
-              <div class="tech-stack">
-                <span class="tech-stack-label">Tech stack</span>
-                <span>{{ delimit .technologies " · " }}</span>
-              </div>
-            {{- end }}
+              {{- if and .highlights (gt (len .highlights) 0) }}
+                <ul class="mt-2 mb-0">
+                  {{- range .highlights }}
+                    <li>{{ . }}</li>
+                  {{- end }}
+                </ul>
+              {{- end }}
 
+              {{- if and .technologies (gt (len .technologies) 0) }}
+                <div class="tech-stack">
+                  <span class="tech-stack-label">Tech stack</span>
+                  <span>{{ delimit .technologies " · " }}</span>
+                </div>
+              {{- end }}
+
+            </div>
           </div>
         {{- end }}
       </div>

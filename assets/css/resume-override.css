@@ -92,6 +92,11 @@ hr.m-0 {
   margin-bottom: 2rem !important;
 }
 
+/* Employment: limit details width, not job title and date rows */
+#employment .employment-details {
+  max-width: 68rem;
+}
+
 /* Intro heading
 .intro-title {
   font-size: 2rem !important;
