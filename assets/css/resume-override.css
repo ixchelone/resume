@@ -91,6 +91,11 @@ hr.m-0 {
   line-height: 1.3;
 }
 
+/* Employment: spacing between positions */
+#employment .employment-list > .mb-4 {
+  margin-bottom: 2rem !important;
+}
+
 /* Intro heading
 .intro-title {
   font-size: 2rem !important;
