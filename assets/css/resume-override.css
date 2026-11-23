@@ -269,3 +269,11 @@ footer.site-footer {
   text-transform: uppercase;
   color: #9aa1a8;
 }
+
+/* Employment: reduce bullet indentation on mobile */
+@media (max-width: 768px) {
+  #employment ul {
+    padding-left: 1.25rem;
+    margin-left: 0;
+  }
+}
