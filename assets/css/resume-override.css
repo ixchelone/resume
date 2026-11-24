@@ -283,3 +283,19 @@ footer.site-footer {
     margin-left: 0;
   }
 }
+
+/* Contact form: limit width on desktop */
+#contact #contact-form,
+#contact .resume-section-content > [data-fs-success],
+#contact .resume-section-content > [data-fs-error] {
+  width: 50%;
+}
+
+/* Contact form: full width on smaller screens */
+@media (max-width: 991.98px) {
+  #contact #contact-form,
+  #contact .resume-section-content > [data-fs-success],
+  #contact .resume-section-content > [data-fs-error] {
+    width: 100%;
+  }
+}
