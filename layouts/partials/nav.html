@@ -42,6 +42,11 @@
         <a class="nav-link js-scroll-trigger" href="#credentials">Credentials</a>
       </li>
 
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="#contact">{{ i18n "contact" }}</a>
+      </li>
+
+
       {{- with .Site.Params.resumePdfUrl }}
         <li class="nav-item">
           <a class="nav-link js-cv-link" href="{{ . | safeURL }}" type="application/pdf" aria-label="Open CV (PDF)" title="Open CV (PDF)">
@@ -55,12 +60,6 @@
         <a class="nav-link js-scroll-trigger" href="#{{ . }}">{{ . | i18n }}</a>
       </li>
       {{ end }}
-
-    {{ if .Site.Params.showContact }}
-      <li class="nav-item">
-        <a class="nav-link js-scroll-trigger" href="#contact">{{ i18n "contact" }}</a>
-      </li>
-    {{ end }}
 
     </ul>
   </div>
