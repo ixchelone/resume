@@ -13,3 +13,5 @@ title = "Resume"
 {{< education >}}
 
 {{< credentials >}}
+
+{{< contact >}}
