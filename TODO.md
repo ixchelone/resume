@@ -95,23 +95,6 @@ Tento TODO je prováděcí plán. Každý úkol obsahuje cíl, konkrétní kroky
 - [ ] Vyhnout se opakování stejné informace v `summary` a highlights.
 - [ ] Udržet nejrelevantnější a nejčerstvější zkušenosti nejdetailnější; starší role mohou být stručnější.
 
-### Zentity – Infrastructure Engineer (2023-09 až 2024-08)
-
-Současné oblasti: L2/L3 support telco vendorů, OpenShift a Docker, Azure infrastructure scoping, firewall/gateway review, Jenkins/Nexus, Zabbix, Python/Bash cron automation, Postman, Nginx, Redis a ITIL 4 workflows.
-
-- [ ] Zjistit počet a typ telco vendorů / projektů, které byly podporovány.
-- [ ] Zjistit typické odpovědnosti L2/L3: incidenty, deploymenty, troubleshooting, změny, eskalace.
-- [ ] Zjistit rozsah OpenShift/Docker prostředí: aplikace, namespaces, clustery, prostředí, deployment frequency.
-- [ ] Popsat konkrétní problémy při nasazení a jejich vyřešení; nevymýšlet počet aplikací.
-- [ ] Ověřit roli při Azure scoping: které komponenty byly navrhovány nebo posuzovány a jaký byl výstup.
-- [ ] Zjistit rozsah firewall/gateway review a konkrétní přínos pro bezpečnost nebo síťové provozování.
-- [ ] U Jenkins/Nexus zjistit typ CI/CD problémů, které byly řešeny, a dopad na release / deployment flow.
-- [ ] U Zabbix dashboardů zjistit počet hostů / služeb / týmů a co dashboardy zlepšily.
-- [ ] U Python/Bash cron skriptů zjistit, jaký ruční proces automatizovaly, jak často běžely a jaký čas či chyby ušetřily.
-- [ ] U Postman/Nginx/Redis rozlišit diagnostiku API, konfiguraci proxy a práci s databázovými službami; spojit do jednoho relevantního bodu jen pokud to dává smysl.
-- [ ] U ITIL 4 zjistit konkrétní změnu v workflow / handover a její výsledek.
-- [ ] Vybrat 3–4 nejvýznamnější výsledky.
-
 ### T-Mobile – Application Administrator & Solution Manager Deputy (2022-05 až 2023-08)
 
 Současné oblasti: enterprise VoIP, Apache web servers, RCA, Linux/Oracle SQL, TrueSight/Dynatrace, SSL certificates, HP Service Manager, external KB, change approvals a Avaya Genesys roles.
