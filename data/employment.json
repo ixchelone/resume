@@ -15,6 +15,7 @@
     "Reviewed OpenShift project access and removed obsolete former-employee accounts.",
     "Adjusted Azure gateway scaling settings and updated firewall IP allowlists as part of infrastructure configuration and troubleshooting.",
     "Investigated errors in an existing Jenkins pipeline, escalated unresolved issues for further investigation, and verified that build artifacts were available in Nexus after pipeline execution.",
+    "Developed a Python script to collect application data, calculate and generate reports locally on individual servers.",
     "Reorganized and maintained a company-wide Excel tracker for several dozen client projects, validating project details and team assignments and linking Jira and Confluence records.",
     "Prepared ITIL-aligned improvement proposals for incident management, testing, disaster recovery, and Development–Operations handovers; structured actions in Jira and coordinated reviews with DevOps, cloud architects, and senior management."
     ],
