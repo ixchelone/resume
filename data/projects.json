@@ -2,13 +2,14 @@
   {
     "title": "Personal Resume Website",
     "period": "08-2025—Present",
-    "summary": "Designed and maintain a custom, data-driven résumé website built with Hugo, supported by an automated deployment pipeline and Cloudflare infrastructure.",
+    "summary": "Designed and maintain a custom, data-driven résumé website built with Hugo, featuring an AJAX-powered contact form and an automated deployment pipeline on Cloudflare infrastructure.",
     "technologies": [
       "Hugo",
       "Go Templates",
       "HTML",
       "CSS",
       "JavaScript",
+      "Formspree",
       "JSON",
       "Git",
       "GitHub Actions",
