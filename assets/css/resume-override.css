@@ -304,3 +304,14 @@ footer.site-footer {
 #education a {
   margin: 0 0.25rem;
 }
+
+/* Normalize spacing between the final content item and section divider */
+#about .resume-section-content > p:last-child,
+#languages .resume-section-content > ul > li:last-child,
+#skills .resume-section-content > .skills > .skill-group:last-child,
+#employment .employment-list > :last-child,
+#projects .projects-list > :last-child,
+#education .education-list > :last-child,
+#credentials .resume-section-content > .education-list:last-child > :last-child {
+  margin-bottom: 0 !important;
+}
