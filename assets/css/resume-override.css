@@ -303,7 +303,6 @@ footer.site-footer {
 /* Education: monochrome website icons */
 #education a {
   margin: 0 0.25rem;
-  filter: grayscale(1) brightness(0);
 }
 
 /* Education: smaller website icons on mobile */
