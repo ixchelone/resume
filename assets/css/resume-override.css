@@ -300,9 +300,17 @@ footer.site-footer {
   }
 }
 
-/* Education: spacing around website icon */
+/* Education: monochrome website icons */
 #education a {
   margin: 0 0.25rem;
+  filter: grayscale(1) brightness(0);
+}
+
+/* Education: smaller website icons on mobile */
+@media (max-width: 768px) {
+  #education a {
+    font-size: 0.85em;
+  }
 }
 
 /* Normalize spacing between the final content item and section divider */
