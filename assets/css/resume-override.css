@@ -640,3 +640,11 @@ html[data-theme="dark"] #sideNav .badge-cv {
 html[data-theme="dark"] #sideNav .badge-cv {
   background-color: #d523fe !important;
 }
+
+/* Remove focus/active frames from the theme toggle buttons */
+.theme-toggle__button:focus,
+.theme-toggle__button:focus-visible,
+.theme-toggle__button:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
