@@ -648,3 +648,11 @@ html[data-theme="dark"] #sideNav .badge-cv {
   outline: none !important;
   box-shadow: none !important;
 }
+
+/* Mobile: align theme toggle with navigation labels */
+@media (max-width: 991.98px) {
+  #sideNav .theme-toggle-item {
+    justify-content: flex-start !important;
+    padding: 0.35rem 1rem 0.65rem 0 !important;
+  }
+}
