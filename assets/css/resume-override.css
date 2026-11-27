@@ -552,7 +552,7 @@ html[data-theme="dark"] #contact .alert-danger {
 
 /* Existing PDF badge */
 html[data-theme="dark"] .navbar .badge-cv {
-  background-color: var(--dark-accent-hover) !important;
+  background-color: #8a00fd !important;
   color: var(--dark-background) !important;
 }
 
@@ -629,4 +629,14 @@ html[data-theme="dark"] .theme-toggle__button:focus-visible {
 html[data-theme="dark"] #sideNav,
 html[data-theme="dark"] #sideNav.bg-primary {
   background-color: #abdbff !important;
+}
+
+/* Dark theme PDF badge: lighter purple sampled from the reference */
+html[data-theme="dark"] #sideNav .badge-cv {
+  background-color: #d523fe !important;
+}
+
+/* Dark theme PDF badge: reference purple */
+html[data-theme="dark"] #sideNav .badge-cv {
+  background-color: #d523fe !important;
 }
