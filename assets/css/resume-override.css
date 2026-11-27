@@ -322,3 +322,311 @@ footer.site-footer {
 #credentials .resume-section-content > .education-list:last-child > :last-child {
   margin-bottom: 0 !important;
 }
+
+/* === Light / Dark theme toggle === */
+.theme-toggle-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1rem;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.theme-toggle__button {
+  border: 0;
+  border-radius: 999px;
+  padding: 0.3rem 0.7rem;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  font: inherit;
+  font-size: 0.8rem;
+  line-height: 1.3;
+  cursor: pointer;
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+.theme-toggle__button.is-active {
+  background: #fff;
+  color: #bd4f91;
+  font-weight: 600;
+}
+
+.theme-toggle__button:hover:not(.is-active) {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.theme-toggle__button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+
+/* === Dark theme color scheme === */
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --dark-background: #191835;
+  --dark-surface: #22213f;
+  --dark-text: #d6d9df;
+  --dark-muted: var(--dark-text);
+  --dark-accent: #4db1ff;
+  --dark-accent-hover: #6d00fc;
+  --dark-border: rgba(119, 131, 143, 0.4);
+
+  --credential-emphasis-color: var(--dark-text);
+  --credential-title-color: var(--credential-emphasis-color);
+  --credential-date-color: var(--dark-muted);
+  --credential-subtitle-color: var(--credential-emphasis-color);
+  --credential-meta-color: var(--dark-muted);
+
+  background-color: var(--dark-background);
+}
+
+html[data-theme="dark"] body {
+  background-color: var(--dark-background) !important;
+  color: var(--dark-text) !important;
+}
+
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4,
+html[data-theme="dark"] h5,
+html[data-theme="dark"] h6 {
+  color: var(--dark-text) !important;
+}
+
+/* Navigation: bright blue panel with white labels and purple hover accent */
+html[data-theme="dark"] #sideNav,
+html[data-theme="dark"] #sideNav.bg-primary {
+  background-color: var(--dark-accent) !important;
+}
+
+html[data-theme="dark"] #sideNav .navbar-nav .nav-link {
+  color: #9900b5 !important;
+}
+
+html[data-theme="dark"] #sideNav .navbar-nav .nav-link:hover,
+html[data-theme="dark"] #sideNav .navbar-nav .nav-link:focus {
+  color: #a98aff !important;
+  text-decoration: none;
+}
+
+html[data-theme="dark"] #sideNav .navbar-nav .nav-link.active {
+  color: #9900b5 !important;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+html[data-theme="dark"] #sideNav .navbar-nav .nav-link.active:hover,
+html[data-theme="dark"] #sideNav .navbar-nav .nav-link.active:focus {
+  color: #a98aff !important;
+}
+
+html[data-theme="dark"] #sideNav .navbar-toggler {
+  border-color: rgba(25, 24, 53, 0.55);
+}
+
+html[data-theme="dark"] #sideNav .navbar-toggler-icon {
+  filter: none;
+}
+
+/* Keep the theme toggle legible on the blue navigation panel. */
+html[data-theme="dark"] #sideNav .theme-toggle {
+  border-color: rgba(25, 24, 53, 0.6);
+  background-color: rgba(25, 24, 53, 0.08);
+}
+
+html[data-theme="dark"] #sideNav .theme-toggle__button {
+  color: var(--dark-background);
+}
+
+html[data-theme="dark"] #sideNav .theme-toggle__button.is-active {
+  background-color: var(--dark-background);
+  color: var(--dark-text);
+}
+
+html[data-theme="dark"] #sideNav .theme-toggle__button:hover:not(.is-active) {
+  background-color: rgba(25, 24, 53, 0.12);
+}
+
+html[data-theme="dark"] #sideNav .theme-toggle__button:focus-visible {
+  outline-color: var(--dark-background);
+}
+
+/* Links and accent text */
+html[data-theme="dark"] a,
+html[data-theme="dark"] a:visited {
+  color: var(--dark-accent);
+}
+
+html[data-theme="dark"] a:hover,
+html[data-theme="dark"] a:focus,
+html[data-theme="dark"] a:active {
+  color: var(--dark-accent-hover);
+}
+
+html[data-theme="dark"] .text-primary {
+  color: var(--dark-accent) !important;
+}
+
+html[data-theme="dark"] .text-muted,
+html[data-theme="dark"] .tech-stack,
+html[data-theme="dark"] .tech-stack-label {
+  color: var(--dark-muted) !important;
+}
+
+/* Section dividers and footer */
+html[data-theme="dark"] section.resume-section::after,
+html[data-theme="dark"] hr.m-0 {
+  border-color: var(--dark-border) !important;
+}
+
+html[data-theme="dark"] footer.site-footer {
+  border-top-color: var(--dark-border) !important;
+  color: var(--dark-muted) !important;
+}
+
+/* Skills */
+html[data-theme="dark"] #skills .skill-group > p {
+  color: var(--dark-text) !important;
+}
+
+html[data-theme="dark"] #skills .skill-group li {
+  color: var(--dark-text);
+  border-color: var(--dark-border) !important;
+  background-color: transparent;
+}
+
+/* Credentials */
+html[data-theme="dark"] #credentials .education-list strong {
+  color: var(--dark-text) !important;
+}
+
+/* Contact form */
+html[data-theme="dark"] #contact label {
+  color: var(--dark-text);
+}
+
+html[data-theme="dark"] #contact .form-control {
+  background-color: var(--dark-surface) !important;
+  border-color: var(--dark-border) !important;
+  color: var(--dark-text) !important;
+}
+
+html[data-theme="dark"] #contact .form-control::placeholder {
+  color: var(--dark-muted);
+}
+
+html[data-theme="dark"] #contact .form-control:focus {
+  border-color: var(--dark-accent) !important;
+  box-shadow: 0 0 0 0.2rem rgba(77, 177, 255, 0.2);
+}
+
+html[data-theme="dark"] #contact .btn-primary {
+  background-color: var(--dark-accent) !important;
+  border-color: var(--dark-accent) !important;
+  color: var(--dark-background) !important;
+}
+
+html[data-theme="dark"] #contact .btn-primary:hover,
+html[data-theme="dark"] #contact .btn-primary:focus {
+  background-color: var(--dark-accent-hover) !important;
+  border-color: var(--dark-accent-hover) !important;
+}
+
+html[data-theme="dark"] #contact .alert-success,
+html[data-theme="dark"] #contact .alert-danger {
+  background-color: var(--dark-surface);
+  border-color: var(--dark-border);
+  color: var(--dark-text);
+}
+
+/* Existing PDF badge */
+html[data-theme="dark"] .navbar .badge-cv {
+  background-color: var(--dark-accent-hover) !important;
+  color: var(--dark-background) !important;
+}
+
+/* Legacy tag component and blockquotes */
+html[data-theme="dark"] .tag {
+  background-color: var(--dark-surface);
+  color: var(--dark-text);
+}
+
+html[data-theme="dark"] .tag::before {
+  background-color: var(--dark-background);
+}
+
+html[data-theme="dark"] .tag::after {
+  border-left-color: var(--dark-surface);
+}
+
+html[data-theme="dark"] .tag:hover {
+  background-color: var(--dark-accent-hover);
+  color: var(--dark-background);
+}
+
+html[data-theme="dark"] .tag:hover::after {
+  border-left-color: var(--dark-accent-hover);
+}
+
+html[data-theme="dark"] .resume-section blockquote {
+  border-left-color: var(--dark-accent);
+}
+
+/* Dark-mode theme selector */
+html[data-theme="dark"] .theme-toggle {
+  border-color: rgba(77, 177, 255, 0.7);
+  background-color: rgba(77, 177, 255, 0.08);
+}
+
+html[data-theme="dark"] .theme-toggle__button {
+  color: var(--dark-text);
+}
+
+html[data-theme="dark"] .theme-toggle__button.is-active {
+  background-color: var(--dark-accent);
+  color: var(--dark-background);
+}
+
+html[data-theme="dark"] .theme-toggle__button:hover:not(.is-active) {
+  background-color: rgba(77, 177, 255, 0.14);
+}
+
+html[data-theme="dark"] .theme-toggle__button:focus-visible {
+  outline-color: var(--dark-accent);
+}
+
+/* Respect reduced motion when changing themes. */
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle__button {
+    transition: none;
+  }
+}
+
+/* Compact theme toggle */
+.theme-toggle {
+  gap: 1px;
+  padding: 2px;
+}
+
+.theme-toggle__button {
+  padding: 0.18rem 0.48rem;
+  font-size: 0.72rem;
+  line-height: 1.2;
+}
+
+/* Navigation background override: sampled blue */
+html[data-theme="dark"] #sideNav,
+html[data-theme="dark"] #sideNav.bg-primary {
+  background-color: #abdbff !important;
+}

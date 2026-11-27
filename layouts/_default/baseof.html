@@ -18,6 +18,19 @@
   <meta property="og:description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{else}}{{ .Description }}{{ end }}" />
   <meta name="author" content="{{ .Site.Params.firstName }} {{ .Site.Params.lastName }}">
 
+  <!-- Apply the saved color theme before the page stylesheet is rendered. -->
+  <script>
+    (function () {
+      var theme = 'light';
+      try {
+        theme = localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
+      } catch (error) {
+        // Keep the default light theme when localStorage is unavailable.
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
   <!-- Fade-in CSS -->
   <style>
     html { opacity: 0; }
@@ -69,6 +82,7 @@
   <script defer src="{{ "js/site/navbar-collapse.js" | absURL }}"></script>
   <script defer src="{{ "js/site/scrollspy-init.js" | absURL }}"></script>
   <script defer src="{{ "js/site/cv-link-target.js" | absURL }}"></script>
+  <script defer src="{{ "js/site/theme-toggle.js" | absURL }}"></script>
   <!-- <script defer src="{{ "js/site/tooltips-init.js" | absURL }}"></script> -->
 
   <!-- Custom scripts for this template -->
