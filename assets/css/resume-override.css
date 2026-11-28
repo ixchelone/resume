@@ -50,13 +50,6 @@ section.resume-section::after {
 }
 
 /* Desktop spacing matches Bootstrap's p-lg-5 utility */
-@media (min-width: 992px) {
-  section.resume-section {
-    padding-left: 3rem !important;
-    padding-right: 3rem !important;
-  }
-}
-
 .resume-section .resume-section-content {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
@@ -334,8 +327,8 @@ footer.site-footer {
 .theme-toggle {
   display: inline-flex;
   align-items: center;
-  gap: 2px;
-  padding: 3px;
+  gap: 1px;
+  padding: 2px;
   border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.14);
@@ -344,12 +337,12 @@ footer.site-footer {
 .theme-toggle__button {
   border: 0;
   border-radius: 999px;
-  padding: 0.3rem 0.7rem;
+  padding: 0.18rem 0.48rem;
   background: transparent;
   color: rgba(255, 255, 255, 0.9);
   font: inherit;
-  font-size: 0.8rem;
-  line-height: 1.3;
+  font-size: 0.72rem;
+  line-height: 1.2;
   cursor: pointer;
   transition: background-color 0.18s ease, color 0.18s ease;
 }
@@ -405,11 +398,6 @@ html[data-theme="dark"] h6 {
 }
 
 /* Navigation: bright blue panel with white labels and purple hover accent */
-html[data-theme="dark"] #sideNav,
-html[data-theme="dark"] #sideNav.bg-primary {
-  background-color: var(--dark-accent) !important;
-}
-
 html[data-theme="dark"] #sideNav .navbar-nav .nav-link {
   color: #9900b5 !important;
 }
@@ -613,18 +601,6 @@ html[data-theme="dark"] .theme-toggle__button:focus-visible {
   }
 }
 
-/* Compact theme toggle */
-.theme-toggle {
-  gap: 1px;
-  padding: 2px;
-}
-
-.theme-toggle__button {
-  padding: 0.18rem 0.48rem;
-  font-size: 0.72rem;
-  line-height: 1.2;
-}
-
 /* Navigation background override: sampled blue */
 html[data-theme="dark"] #sideNav,
 html[data-theme="dark"] #sideNav.bg-primary {
@@ -632,11 +608,6 @@ html[data-theme="dark"] #sideNav.bg-primary {
 }
 
 /* Dark theme PDF badge: lighter purple sampled from the reference */
-html[data-theme="dark"] #sideNav .badge-cv {
-  background-color: #d523fe !important;
-}
-
-/* Dark theme PDF badge: reference purple */
 html[data-theme="dark"] #sideNav .badge-cv {
   background-color: #d523fe !important;
 }
