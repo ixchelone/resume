@@ -55,13 +55,6 @@ section.resume-section::after {
   padding-bottom: 0 !important;
 }
 
-/* Divider spacing */
-hr.m-0 {
-  margin: 1rem 0 !important;
-  border-top: 1px solid rgba(0,0,0,.12);
-  opacity: 1;
-}
-
 /* Tighter list spacing inside sections */
 .resume-section-content ul { margin-top: .5rem; margin-bottom: 0; }
 .resume-section-content li { margin-bottom: .25rem; }
@@ -480,9 +473,6 @@ html[data-theme="dark"] .tech-stack-label {
 
 /* Section dividers and footer */
 html[data-theme="dark"] section.resume-section::after,
-html[data-theme="dark"] hr.m-0 {
-  border-color: var(--dark-border) !important;
-}
 
 html[data-theme="dark"] footer.site-footer {
   border-top-color: var(--dark-border) !important;
