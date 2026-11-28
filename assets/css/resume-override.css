@@ -90,7 +90,7 @@ hr.m-0 {
   max-width: 68rem;
 }
 
-/* Intro heading
+/* Intro heading 
 .intro-title {
   font-size: 2rem !important;
   font-weight: 600 !important;
@@ -373,6 +373,10 @@ html[data-theme="dark"] {
   --dark-accent: #4db1ff;
   --dark-accent-hover: #6d00fc;
   --dark-border: rgba(119, 131, 143, 0.4);
+  --dark-nav-background: #abdbff;
+  --dark-nav-link: #9900b5;
+  --dark-nav-link-hover: #a98aff;
+  --dark-nav-badge: #d523fe;
 
   --credential-emphasis-color: var(--dark-text);
   --credential-title-color: var(--credential-emphasis-color);
@@ -397,26 +401,28 @@ html[data-theme="dark"] h6 {
   color: var(--dark-text) !important;
 }
 
-/* Navigation: bright blue panel with white labels and purple hover accent */
-html[data-theme="dark"] #sideNav .navbar-nav .nav-link {
-  color: #9900b5 !important;
+/* Navigation */
+html[data-theme="dark"] #sideNav,
+html[data-theme="dark"] #sideNav.bg-primary {
+  background-color: var(--dark-nav-background) !important;
+}
+
+html[data-theme="dark"] #sideNav .navbar-nav .nav-link,
+html[data-theme="dark"] #sideNav .navbar-nav .nav-link.active {
+  color: var(--dark-nav-link) !important;
 }
 
 html[data-theme="dark"] #sideNav .navbar-nav .nav-link:hover,
-html[data-theme="dark"] #sideNav .navbar-nav .nav-link:focus {
-  color: #a98aff !important;
+html[data-theme="dark"] #sideNav .navbar-nav .nav-link:focus,
+html[data-theme="dark"] #sideNav .navbar-nav .nav-link.active:hover,
+html[data-theme="dark"] #sideNav .navbar-nav .nav-link.active:focus {
+  color: var(--dark-nav-link-hover) !important;
   text-decoration: none;
 }
 
 html[data-theme="dark"] #sideNav .navbar-nav .nav-link.active {
-  color: #9900b5 !important;
   font-weight: 700;
   text-decoration: none;
-}
-
-html[data-theme="dark"] #sideNav .navbar-nav .nav-link.active:hover,
-html[data-theme="dark"] #sideNav .navbar-nav .nav-link.active:focus {
-  color: #a98aff !important;
 }
 
 html[data-theme="dark"] #sideNav .navbar-toggler {
@@ -601,15 +607,9 @@ html[data-theme="dark"] .theme-toggle__button:focus-visible {
   }
 }
 
-/* Navigation background override: sampled blue */
-html[data-theme="dark"] #sideNav,
-html[data-theme="dark"] #sideNav.bg-primary {
-  background-color: #abdbff !important;
-}
-
-/* Dark theme PDF badge: lighter purple sampled from the reference */
+/* Dark theme PDF badge */
 html[data-theme="dark"] #sideNav .badge-cv {
-  background-color: #d523fe !important;
+  background-color: var(--dark-nav-badge) !important;
 }
 
 /* Remove focus/active frames from the theme toggle buttons */
